@@ -4,9 +4,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: (theme) => ({
-        "hero-pattern": "url('~/img/background.jpg')",
-      }),
+      backgroundImage: {
+        "hero-pattern":
+          "linear-gradient(to right top, rgba(43, 108, 176, 0.9), rgba(43, 108, 176, 0.1)), url('~/img/background.jpg')",
+      },
     },
   },
   variants: {
