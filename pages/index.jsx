@@ -4,6 +4,7 @@ import logo from "/img/logo.png";
 import busca_frete from "/img/busca_frete.png"
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
+import { Carousel } from "../components/carousel";
 export default function Home() {
   useEffect(() => {
   }, [])
@@ -13,7 +14,7 @@ export default function Home() {
         <title>Busca frete</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+      <div>
       <div className="flex flex-col bg-hero-pattern bg-cover bg-no-repeat h-screen">
         {/* --- */}
         <nav className="flex justify-between items-center px-5">
@@ -62,6 +63,8 @@ export default function Home() {
             <button className="text-gray-600 text-semibold bg-yellow-300 rounded-lg px-3 h-4/6">Get estimative</button>
           </form>
           </div>
+        </div>
+        <Carousel/>
         </div>
     </>
   );
