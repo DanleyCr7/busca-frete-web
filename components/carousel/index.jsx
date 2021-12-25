@@ -17,8 +17,8 @@ export function Carousel() {
             url: 'https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2021/11/legiao_mL7ZfJHyCVDR.jpg.jpeg'
         }
     ]);
-    const buttonCarosel = "rounded-full mx-1 w-3 h-3 bg-yellow-400 hover:bg-yellow-200";
-    const buttonCaroselSelect = "rounded-full mx-1 w-3 h-3 bg-yellow-200"
+    const buttonCarosel = "rounded-full cursor-pointer mx-1 w-3 h-3 bg-yellow-400 hover:bg-yellow-200";
+    const buttonCaroselSelect = "rounded-full cursor-pointer mx-1 w-3 h-3 bg-yellow-200"
     const [avaliation, setAvaliation] = useState(carrosel[0])
     const [count, setCount] = useState(0);
     // useEffect(() => {
@@ -34,21 +34,21 @@ export function Carousel() {
 
     return (
 
-        <div class="carousel relative shadow-2xl w-screen flex flex-col py-10 items-center justify-center" style={{ backgroundColor: Colors.colorPatern }} >
-            <div class="flex">
-                <div class="relative mr-3 mb-5">
-                    <img class="rounded-full h-16 w-16" src={avaliation?.url} alt="" />
-                    <div class="flex inset-x-8 top-10 rounded-full z-2 absolute items-center justify-center w-8 h-8 bg-indigo-600">
-                        <LinkIcon class="h-5 w-5 text-white self-center" />
+        <div className="carousel relative shadow-2xl w-screen flex flex-col py-10 items-center justify-center" style={{ backgroundColor: Colors.colorPatern }} >
+            <div className="flex">
+                <div className="relative mr-3 mb-5">
+                    <img className="rounded-full h-16 w-16" src={avaliation?.url} alt="" />
+                    <div className="flex inset-x-8 top-10 rounded-full z-2 absolute items-center justify-center w-8 h-8 bg-indigo-600">
+                        <LinkIcon className="h-5 w-5 text-white self-center" />
                     </div>
                 </div>
                 <div>
-                    <span class="font-sans font-semibold text-white">{avaliation?.nome}</span>
-                    <div class="flex">
-                        <StarIcon class="h-5 w-5 text-yellow-400 self-center" />
-                        <StarIcon class="h-5 w-5 text-yellow-400 self-center" />
-                        <StarIcon class="h-5 w-5 text-yellow-400 self-center" />
-                        <StarIcon class="h-5 w-5 text-yellow-400 self-center" />
+                    <span className="font-sans font-semibold text-white">{avaliation?.nome}</span>
+                    <div className="flex">
+                        <StarIcon className="h-5 w-5 text-yellow-400 self-center" />
+                        <StarIcon className="h-5 w-5 text-yellow-400 self-center" />
+                        <StarIcon className="h-5 w-5 text-yellow-400 self-center" />
+                        <StarIcon className="h-5 w-5 text-yellow-400 self-center" />
                     </div>
                 </div>
             </div>
