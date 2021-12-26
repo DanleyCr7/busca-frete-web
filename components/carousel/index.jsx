@@ -34,7 +34,7 @@ export function Carousel() {
 
     return (
 
-        <div className="carousel relative w-screen flex flex-col py-10 items-center justify-center" style={{ backgroundColor: Colors.colorPatern }} >
+        <div className="carousel relative w-full flex flex-col py-10 items-center justify-center" style={{ backgroundColor: Colors.colorPatern }} >
             <div className="flex">
                 <div className="relative mr-3 mb-5">
                     <img className="rounded-full h-16 w-16" src={avaliation?.url} alt="" />
