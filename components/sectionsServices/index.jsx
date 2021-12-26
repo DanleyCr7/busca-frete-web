@@ -3,6 +3,7 @@ import { ArrowRightIcon } from '@heroicons/react/solid';
 import { Colors } from "../../config/color";
 import delivery from '/img/fast-delivery.png'
 import Image from 'next/image'
+
 export function Section() {
     return (
         <div className="flex w-full px-10 justify-center mt-20">

@@ -6,6 +6,8 @@ import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
 import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
+import {SectionCar} from '../components/sectionCar'
+
 export default function Home() {
   useEffect(() => {
   }, [])
@@ -33,7 +35,7 @@ export default function Home() {
             </ul>
           </nav>
           {/* --- */}
-          <div className="text-center self-center rounded-full w-4/6 bg-white py-5">
+          <div className="text-center self-center rounded-full w-4/6 bg-blue-800 text-white py-5">
             <span >Now live in New York City! Starting today, Luggers are hitting the pavement - <a href="">learn more.</a></span>
           </div>
           {/* <--> */}
@@ -66,7 +68,9 @@ export default function Home() {
           </div>
         </div>
         <Carousel />
+        
         <Describe />
+
       </div>
     </>
   );
