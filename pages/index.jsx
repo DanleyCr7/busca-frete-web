@@ -5,6 +5,7 @@ import busca_frete from "/img/busca_frete.png"
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
 import { Carousel } from "../components/carousel";
+import { Describe } from "../components/describe";
 export default function Home() {
   useEffect(() => {
   }, [])
@@ -65,6 +66,7 @@ export default function Home() {
           </div>
         </div>
         <Carousel />
+        <Describe />
       </div>
     </>
   );

@@ -17,8 +17,8 @@ export function Carousel() {
             url: 'https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2021/11/legiao_mL7ZfJHyCVDR.jpg.jpeg'
         }
     ]);
-    const buttonCarosel = "rounded-full cursor-pointer mx-1 w-3 h-3 bg-yellow-400 hover:bg-yellow-200";
-    const buttonCaroselSelect = "rounded-full cursor-pointer mx-1 w-3 h-3 bg-yellow-200"
+    const buttonCarosel = "rounded-full cursor-pointer mx-1 w-3 h-3 bg-yellow-400 hover:bg-blue-800";
+    const buttonCaroselSelect = "rounded-full cursor-pointer mx-1 w-3 h-3 bg-yellow-200 hover:bg-blue-800"
     const [avaliation, setAvaliation] = useState(carrosel[0])
     const [count, setCount] = useState(0);
     // useEffect(() => {
@@ -34,7 +34,7 @@ export function Carousel() {
 
     return (
 
-        <div className="carousel relative shadow-2xl w-screen flex flex-col py-10 items-center justify-center" style={{ backgroundColor: Colors.colorPatern }} >
+        <div className="carousel relative w-screen flex flex-col py-10 items-center justify-center" style={{ backgroundColor: Colors.colorPatern }} >
             <div className="flex">
                 <div className="relative mr-3 mb-5">
                     <img className="rounded-full h-16 w-16" src={avaliation?.url} alt="" />
@@ -66,6 +66,7 @@ export function Carousel() {
                     )
                 })}
             </div>
+            <Section />
             <Section />
         </div >
 
