@@ -2,6 +2,7 @@ import { StarIcon, LinkIcon } from '@heroicons/react/solid'
 import { useEffect, useState } from 'react'
 import { Colors } from '../../config/color'
 import { Section } from '../sectionsServices';
+
 export function Carousel() {
     const [carrosel, setCarrosel] = useState([
         {
@@ -68,7 +69,6 @@ export function Carousel() {
             </div>
             <Section />
             <Section />
-        </div >
-
+        </div>
     )
 }
