@@ -13,6 +13,8 @@ import femaleCustomerRate from '/img/female-customer-rate-and-tip.png'
 
 import { Devider } from "../devider"
 import { PassoApasso } from "../passoApasso"
+import { Reviews } from "../reviews"
+import { Parceria } from "../torne-se"
 
 export function Describe() {
     return (
@@ -146,7 +148,11 @@ export function Describe() {
                         </div>
                     </div>
                 </div>
-
+                <div className="my-8">
+                    <Devider />
+                </div>
+                <Reviews />
+                <Parceria />
             </div>
         </div>
     )
