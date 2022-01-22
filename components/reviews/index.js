@@ -14,7 +14,7 @@ export function Reviews() {
     }
 
     return (
-        <div className="carousel relative w-full flex flex-col py-10 items-center justify-center"    >
+        <div className="carousel relative w-full flex flex-col py-10 items-center justify-center">
             <div className="flex justify-center">
                 <div className="relative mr-3 mb-5">
                     <img className="rounded-full h-16 w-16" src="https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2021/11/legiao_mL7ZfJHyCVDR.jpg" alt="" />

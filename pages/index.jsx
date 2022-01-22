@@ -6,6 +6,7 @@ import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
 import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
+import { Footer } from "../components/footer";
 export default function Home() {
   useEffect(() => {
   }, [])
@@ -16,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div className="flex flex-col bg-hero-pattern bg-cover bg-no-repeat h-screen">
+        <div className="flex flex-col w-full bg-hero-pattern bg-cover bg-no-repeat h-screen">
           {/* --- */}
           <nav className="flex justify-between items-center px-5">
             <Image src={logo} alt="me" width="64" height="64" />
@@ -67,8 +68,8 @@ export default function Home() {
         </div>
 
         <Carousel />
-        <Describe />
       </div>
+      <Describe />
     </>
   );
 }

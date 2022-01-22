@@ -15,6 +15,7 @@ import { Devider } from "../devider"
 import { PassoApasso } from "../passoApasso"
 import { Reviews } from "../reviews"
 import { Parceria } from "../torne-se"
+import { Footer } from "../footer"
 
 export function Describe() {
     return (
@@ -148,11 +149,13 @@ export function Describe() {
                         </div>
                     </div>
                 </div>
-                <div className="my-8">
-                    <Devider />
+                <div className="my-4 w-full items-center justify-center">
+                </div>
+                <div className="w-5/6 bg-gray-200 mt-20 mb-20 h-px" style={{ paddingTop: 0.08 }}>
                 </div>
                 <Reviews />
                 <Parceria />
+                <Footer />
             </div>
         </div>
     )
