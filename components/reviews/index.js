@@ -23,7 +23,7 @@ export function Reviews() {
                     </div>
                 </div>
                 <div>
-                    <span className="text-xl font-sans font-bold text-black">Usuário do sistema</span>
+                    <span className="text-lg lg:text-xl font-sans font-bold text-black">Usuário do sistema</span>
                     <div className="flex">
                         <StarIcon className="h-5 w-5 self-center" color={Colors.colorStarReview}/>
                         <StarIcon className="h-5 w-5 self-center" color={Colors.colorStarReview} />
@@ -32,7 +32,7 @@ export function Reviews() {
                     </div>
                 </div>
             </div>
-            <div className="w-3/6 text-center">
+            <div className="w-5/6 lg:w-3/6 text-center">
                 <p className="text-gray-400">
                     "Lugg is THE best! Solomon and Yuri were great! For my most recent purchase I
                     coordinated a pickup elsewhere and drop off at my place. They were fast, efficient,
@@ -40,9 +40,9 @@ export function Reviews() {
                     room for the item they picked up). They were in and out in 10 minutes! Thanks a ton!"
                 </p>
             </div>
-            <a onMouseOut={toggleHoverOut} onMouseMove={toggleHoverLeave} className="flex w-2/5 items-center justify-center mt-8" href="#">
-                <p className="text-lg font-semibold mr-2" style={{ color: hover ? "#8e6ff7" : "#7e33ff"}}> Read more customer reviews</p>
-                <ArrowRightIcon className="h-5 w-5 self-center" style={{ color: hover ? "#8e6ff7" : "#7e33ff"  }}/>
+            <a onMouseOut={toggleHoverOut} onMouseMove={toggleHoverLeave} className="flex lg:w-2/5 w-4/5 items-center justify-center mt-8" href="#">
+                <p className="lg:text-lg text-sm font-semibold mr-2" style={{ color: hover ? "#8e6ff7" : "#7e33ff"}}> Read more customer reviews</p>
+                <ArrowRightIcon className="h-4 w-4 lg:h-5 lg:w-5 self-center" style={{ color: hover ? "#8e6ff7" : "#7e33ff"  }}/>
             </a>
         </div>
     )

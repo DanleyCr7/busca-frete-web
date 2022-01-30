@@ -5,6 +5,7 @@ import vans from '/img/vans.png'
 import sale from '/img/sale.png'
 import delivery from '/img/furgao.png'
 import estrada from '/img/estrada.png'
+import estradaReta from '/img/estrada-reta.png'
 import estrada2 from '/img/estrada2.png'
 import appStore from '/img/app-store.svg'
 import playStore from '/img/google-play.svg'
@@ -26,12 +27,12 @@ export function Describe() {
             <h1 className="not-italic text-black-600 font-bold text-3xl">We've got your back</h1>
             <p className="italic text-gray-400 mt-2">We load, haul & deliver anything</p>
             <div className="w-32 bg-yellow-400 py-0.5 mt-3" style={{ height: 20 }} />
-            <div className="flex justify-items-center mt-10">
-                <div className="mx-10 justify-self-center">
+            <div className="flex flex-col lg:flex-row justify-items-center mt-10">
+                <div className="mx-10 text-center lg:justify-self-center">
                     <Image src={freight} className="rounded-lg" width="300" />
                 </div>
 
-                <div className="mx-10">
+                <div className="mx-10 text-center lg:text-left">
                     <h1 className="not-italic text-black-600 font-bold text-3xl">Two strong Luggers</h1>
                     <div className="w-96">
                         <p className="not-italic text-gray-400 mt-2">
@@ -43,10 +44,10 @@ export function Describe() {
             </div>
             <Devider />
             <div className="mt-10 items-center flex flex-col">
-                <Image src={vans} width="800" />
+                <Image src={vans} className=" w-5/6" />
                 <div className="mt-16 mb-20">
-                    <h1 className="not-italic text-black-600 font-bold text-center text-3xl">A truck as big as you need</h1>
-                    <p className="not-italic text-gray-400 mt-2">
+                    <h1 className="not-italic text-black-600 font-bold text-center text-2xl lg:text-3xl">A truck as big as you need</h1>
+                    <p className="not-italic text-sm lg:text-lg text-gray-400 mt-2">
                         Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.
                     </p>
                 </div>
@@ -57,25 +58,25 @@ export function Describe() {
                 <h1 className="not-italic text-black-600 font-bold text-center text-3xl">
                     Save time & energy
                 </h1>
-                <div className="flex mt-20">
-                    <div className="w-60 flex flex-col items-center mx-10">
-                        <div className="w-40">
+                <div className="flex flex-col lg:flex-row mt-20">
+                    <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
+                        <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
                         <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutes or 30 days</span>
                         <p className="text-center text-sm text-gray-400">Schedule your Lugg ahead of time up to 30 days in advance or
                             request on-demand and we’ll arrive in as little as 30 minutes.</p>
                     </div>
-                    <div className="w-60 flex flex-col items-center mx-10">
-                        <div className="w-40">
+                    <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
+                        <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
                         <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutes or 30 days</span>
                         <p className="text-center text-sm text-gray-400">Schedule your Lugg ahead of time up to 30 days in advance or
                             request on-demand and we’ll arrive in as little as 30 minutes.</p>
                     </div>
-                    <div className="w-60 flex flex-col items-center mx-10">
-                        <div className="w-40">
+                    <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
+                        <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
                         <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutes or 30 days</span>
@@ -90,17 +91,18 @@ export function Describe() {
                 <h1 className="text-black-600 font-bold text-3xl">A truck as big as you need</h1>
                 <p className="italic text-gray-400 mt-2" >Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.</p>
                 <div className="w-48 bg-yellow-300 mt-3  mb-10" style={{ paddingTop: 5 }} />
-
-                <Image src={sale} className="rounded-lg" />
+                <div className="w-5/6 lg:4/5 text-center">
+                    <Image src={sale} className="rounded-lg" />
+                </div>
             </div>
             <div className="w-full flex flex-col items-center my-20">
-                <div className="flex">
-                    <div className="px-4 py-2 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">1</span></div>
-                    <h1 className="text-black-600 font-bold text-3xl">
+                <div className="flex flex-col items-center lg:flex-row">
+                    <div className="px-4 py-2 w-10 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">1</span></div>
+                    <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
                         Request in the app</h1>
                 </div>
                 <div className="w-2/5 ">
-                    <p className="italic text-gray-400 mt-2 text-center" >Set your pickup location and destination, choose the size of vehicle that is right for you, and when you would like us to arrive.</p>
+                    <p className="italic text-gray-400 mt-2 text-sm lg:text-lg text-center" >Set your pickup location and destination, choose the size of vehicle that is right for you, and when you would like us to arrive.</p>
                 </div>
                 <div className="flex justify-between mt-5">
                     <a className="w-32" href="">
@@ -110,8 +112,11 @@ export function Describe() {
                         <Image src={playStore} />
                     </a>
                 </div>
-                <div className="w-6/6 my-10">
+                <div className="hidden lg:inline w-6/6 my-10">
                     <Image src={estrada} />
+                </div>
+                <div className="lg:hidden inline my-10 lg:my-0">
+                    <Image src={estradaReta} />
                 </div>
                 {/* Passo a passo 2 */}
                 <div className="flex w-full items-center justify-center">
