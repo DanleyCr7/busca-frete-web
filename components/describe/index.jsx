@@ -14,7 +14,7 @@ import femaleCustomer from '/img/female-customer.png'
 import femaleCustomerRate from '/img/female-customer-rate-and-tip.png'
 
 import { Devider } from "../devider"
-import { PassoApasso } from "../passoApasso"
+// import { PassoApasso } from "../passoApasso"
 import { Reviews } from "../reviews"
 import { Parceria } from "../torne-se"
 import { Footer } from "../footer"
@@ -22,9 +22,6 @@ import { Footer } from "../footer"
 export function Describe() {
     return (
         <div className="h-screen w-full bg-blue h-20 flex flex-col items-center py-10 mb-20">
-            <div className="mt-12 "></div>
-            <div className="mt-12 "></div>
-
             <h1 className="not-italic text-black-600 font-bold text-3xl">We've got your back</h1>
             <p className="italic text-gray-400 mt-2">We load, haul & deliver anything</p>
             <div className="w-32 bg-yellow-400 py-0.5 mt-3" style={{ height: 20 }} />
@@ -33,7 +30,7 @@ export function Describe() {
                     <Image src={freight} className="rounded-lg" width="300" />
                 </div>
 
-                <div className="mx-10 text-center lg:text-left">
+                <div className="lg:mx-10 text-center lg:text-left">
                     <h1 className="not-italic text-black-600 font-bold text-3xl">Two strong Luggers</h1>
                     <div className="w-96">
                         <p className="not-italic text-gray-400 mt-2">
@@ -45,7 +42,9 @@ export function Describe() {
             </div>
             <Devider />
             <div className="mt-10 items-center flex flex-col">
-                <Image src={vans} className=" w-5/6" />
+                <div className="w-4/5 lg:w-5/6">
+                    <Image src={vans} />
+                </div>
                 <div className="mt-16 mb-20">
                     <h1 className="not-italic text-black-600 font-bold text-center text-2xl lg:text-3xl">A truck as big as you need</h1>
                     <p className="not-italic text-sm lg:text-lg text-gray-400 mt-2">
@@ -92,7 +91,7 @@ export function Describe() {
                 <h1 className="text-black-600 font-bold text-3xl">A truck as big as you need</h1>
                 <p className="italic text-gray-400 mt-2" >Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.</p>
                 <div className="w-48 bg-yellow-300 mt-3  mb-10" style={{ paddingTop: 5 }} />
-                <div className="w-5/6 lg:4/5 text-center">
+                <div className="w-4/5 lg:4/5 text-center">
                     <Image src={sale} className="rounded-lg" />
                 </div>
             </div>
