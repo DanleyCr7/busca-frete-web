@@ -6,6 +6,7 @@ import sale from '/img/sale.png'
 import delivery from '/img/furgao.png'
 import estrada from '/img/estrada.png'
 import estradaReta from '/img/estrada-reta.png'
+import estradaReta2 from '/img/estrada-reta2.png'
 import estrada2 from '/img/estrada2.png'
 import appStore from '/img/app-store.svg'
 import playStore from '/img/google-play.svg'
@@ -119,44 +120,47 @@ export function Describe() {
                     <Image src={estradaReta} />
                 </div>
                 {/* Passo a passo 2 */}
-                <div className="flex w-full items-center justify-center">
+                <div className="flex flex-col-reverse lg:flex-row w-full items-center justify-center">
                     <div className="w-3/6 flex flex-col items-center">
-                        <div className="flex">
-                            <div className="px-4 py-2 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">2</span></div>
-                            <h1 className="text-black-600 font-bold text-3xl">
+                        <div className="flex flex-col lg:flex-row">
+                            <div className="px-4 py-2 w-10 self-center mb-5 lg:mb-0 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">2</span></div>
+                            <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
                                 Don't lift a finger</h1>
                         </div>
                         <div className="w-4/5 ">
                             <p className="italic text-gray-400 mt-2 text-center" >We'll take it from here. Two strong Luggers arrive to load your stuff and secure it safely. We'll see you at your destination!</p>
                         </div>
                     </div>
-                    <div className="w-2/6">
+                    <div className="w-5/6 lg:w-2/6">
                         <Image src={femaleCustomer} />
                     </div>
 
                 </div>
-                <div className="w-6/6 my-10">
+                <div className="hidden lg:inline w-6/6 my-10">
                     <Image src={estrada2} />
                 </div>
+                <div className="lg:hidden inline my-10 lg:my-0">
+                    <Image src={estradaReta2} />
+                </div>
                 {/* Passo a passo 3 */}
-                <div className="flex w-full items-center justify-center">
-                    <div className="w-2/6">
+                <div className="flex flex-col lg:flex-row w-full items-center justify-center">
+                    <div className="w-5/6 lg:w-2/6 mb-5">
                         <Image src={femaleCustomerRate} />
                     </div>
                     <div className="w-3/6 flex flex-col items-center">
-                        <div className="flex">
-                            <div className="px-4 py-2 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">3</span></div>
-                            <h1 className="text-black-600 font-bold text-3xl">
+                        <div className="flex flex-col lg:flex-row">
+                            <div className="px-4 w-10 self-center py-2 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">3</span></div>
+                            <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
                                 Rate and tip</h1>
                         </div>
-                        <div className="w-4/5 ">
+                        <div className="w-5/6 lg:w-4/5">
                             <p className="italic text-gray-400 mt-2 text-center" >We unload your items and place them right where you want them. Tell us about your experience and tip your Luggers for a job well done.</p>
                         </div>
                     </div>
                 </div>
                 <div className="my-4 w-full items-center justify-center">
                 </div>
-                <div className="w-5/6 bg-gray-200 mt-20 mb-20 h-px" style={{ paddingTop: 0.08 }}>
+                <div className="w-5/6 bg-gray-200 lg:mt-20 mb-20 h-px" style={{ paddingTop: 0.08 }}>
                 </div>
                 <Reviews />
                 <Parceria />
