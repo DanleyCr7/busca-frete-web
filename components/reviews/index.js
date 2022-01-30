@@ -40,7 +40,7 @@ export function Reviews() {
                     room for the item they picked up). They were in and out in 10 minutes! Thanks a ton!"
                 </p>
             </div>
-            <a onMouseOut={toggleHoverOut} onMouseMove={toggleHoverLeave} className="flex lg:w-2/5 w-4/5 items-center justify-center mt-8" href="#">
+            <a onMouseOut={toggleHoverOut} onMouseMove={toggleHoverLeave} className="flex lg:w-2/5 w-4/5 mb-8 lg:mb-0 items-center justify-center mt-8" href="#">
                 <p className="lg:text-lg text-sm font-semibold mr-2" style={{ color: hover ? "#8e6ff7" : "#7e33ff"}}> Read more customer reviews</p>
                 <ArrowRightIcon className="h-4 w-4 lg:h-5 lg:w-5 self-center" style={{ color: hover ? "#8e6ff7" : "#7e33ff"  }}/>
             </a>
