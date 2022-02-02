@@ -64,7 +64,6 @@ export function Carousel() {
                 })}
             </div>
             <Section />
-            <Section />
         </div>
     )
 }

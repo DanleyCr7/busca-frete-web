@@ -45,7 +45,7 @@ export function Describe() {
                 <div className="w-4/5 lg:w-5/6">
                     <Image src={vans} />
                 </div>
-                <div className="mt-16 mb-20">
+                <div className="mt-16 mb-20 ">
                     <h1 className="not-italic text-black-600 font-bold text-center text-2xl lg:text-3xl">A truck as big as you need</h1>
                     <p className="not-italic text-sm lg:text-lg text-gray-400 mt-2">
                         Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.
@@ -87,7 +87,7 @@ export function Describe() {
             </div>
             {/* divisao */}
             <Devider />
-            <div className="w-full flex flex-col items-center">
+            <div className="w-full flex flex-col w-5/6 text-center items-center lg:text-left">
                 <h1 className="text-black-600 font-bold text-3xl">A truck as big as you need</h1>
                 <p className="italic text-gray-400 mt-2" >Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.</p>
                 <div className="w-48 bg-yellow-300 mt-3  mb-10" style={{ paddingTop: 5 }} />
