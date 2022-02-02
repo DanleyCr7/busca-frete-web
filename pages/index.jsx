@@ -6,7 +6,7 @@ import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
 import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
-import { Footer } from "../components/footer";
+
 export default function Home() {
   useEffect(() => {
   }, [])
@@ -26,10 +26,10 @@ export default function Home() {
                 <button>Serviços</button>
               </li>
               <li className="mx-2">
-                <button>Teste</button>
+                <button>Sobre</button>
               </li>
               <li className="mx-2">
-                <button>teste</button>
+                <button>Contato</button>
               </li>
             </ul>
           </nav>
