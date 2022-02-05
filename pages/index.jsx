@@ -6,6 +6,7 @@ import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
 import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
+import { ButtonPerson } from "../components/ButtonPerson";
 
 export default function Home() {
   useEffect(() => {
@@ -64,7 +65,7 @@ export default function Home() {
               </div>
 
               {/* <--> */}
-              <button className="text-gray-600 w-full lg:w-1/6 rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-2 lg:py-3">Get estimative</button>
+              <ButtonPerson btn={true} text="Get estimative" />
             </form>
           </div>
         </div>
