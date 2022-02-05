@@ -9,8 +9,8 @@ export function RadioPerson() {
                 defaultValue="não"
                 name="row-radio-buttons-group"
             >
-                <FormControlLabel value="sim" control={<Radio />} label="Sim" />
-                <FormControlLabel value="não" control={<Radio />} label="Não" />
+                <FormControlLabel className="text-gray-500" value="sim" control={<Radio size="small" />} label="Sim" />
+                <FormControlLabel className="text-gray-500" value="não" control={<Radio size="small" />} label="Não" />
             </RadioGroup>
         </FormControl>
     )
