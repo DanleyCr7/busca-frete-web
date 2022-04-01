@@ -22,8 +22,10 @@ import { Footer } from "../footer"
 export function Describe() {
     return (
         <div className="h-screen w-full bg-blue h-20 flex flex-col items-center py-10 mb-20">
-            <h1 className="not-italic text-black-600 font-bold text-3xl">We've got your back</h1>
-            <p className="italic text-gray-400 mt-2">We load, haul & deliver anything</p>
+            <h1 className="not-italic text-black-600 font-bold text-3xl">Nós temos suas costas</h1>
+            <p className="italic text-gray-400 mt-2">
+                Carregamos, transportamos e entregamos qualquer coisa
+            </p>
             <div className="w-32 bg-yellow-400 py-0.5 mt-3" style={{ height: 20 }} />
             <div className="flex flex-col lg:flex-row justify-items-center mt-10">
                 <div className="mx-10 text-center lg:justify-self-center">
@@ -31,11 +33,11 @@ export function Describe() {
                 </div>
 
                 <div className="lg:mx-10 text-center lg:text-left">
-                    <h1 className="not-italic text-black-600 font-bold text-3xl">Two strong Luggers</h1>
+                    <h1 className="not-italic text-black-600 font-bold text-3xl">Dois profissionais fortes</h1>
                     <div className="w-96">
                         <p className="not-italic text-gray-400 mt-2">
-                            Every Lugg comes with 2 strong professional luggers who are vetted for a 5-star experience.
-                            They will do the impossible to load, haul and deliver your items safely.
+                            Cada frete vem com 2 profissionais fortes que são avaliados para uma experiência de 5 estrelas. Eles farão o impossível 
+                            para carregar, transportar e entregar seus itens com segurança.
                         </p>
                     </div>
                 </div>
@@ -46,9 +48,9 @@ export function Describe() {
                     <Image src={vans} />
                 </div>
                 <div className="mt-16 mb-20 ">
-                    <h1 className="not-italic text-black-600 font-bold text-center text-2xl lg:text-3xl">A truck as big as you need</h1>
-                    <p className="not-italic text-sm lg:text-lg text-gray-400 mt-2">
-                        Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.
+                    <h1 className="not-italic text-black-600 font-bold text-center text-2xl lg:text-3xl">Um caminhão do tamanho que você precisa</h1>
+                    <p className="not-italic text-center text-sm lg:text-lg text-gray-400 mt-2">
+                        Variando de picapes a vans de carga e vans Sprinter.
                     </p>
                 </div>
             </div>
@@ -56,40 +58,37 @@ export function Describe() {
             <Devider />
             <div>
                 <h1 className="not-italic text-black-600 font-bold text-center text-3xl">
-                    Save time & energy
+                    Economize tempo e energia
                 </h1>
                 <div className="flex flex-col lg:flex-row mt-20">
                     <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
                         <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
-                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutes or 30 days</span>
-                        <p className="text-center text-sm text-gray-400">Schedule your Lugg ahead of time up to 30 days in advance or
-                            request on-demand and we’ll arrive in as little as 30 minutes.</p>
+                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutos ou 30 dias</span>
+                        <p className="text-center text-sm text-gray-400">Agende seu frete com antecedência de até 30 dias ou solicite sob demanda e chegaremos em menos de 30 minutos.</p>
                     </div>
                     <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
                         <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
-                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutes or 30 days</span>
-                        <p className="text-center text-sm text-gray-400">Schedule your Lugg ahead of time up to 30 days in advance or
-                            request on-demand and we’ll arrive in as little as 30 minutes.</p>
+                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutos ou 30 dias</span>
+                        <p className="text-center text-sm text-gray-400">Agende seu frete com antecedência de até 30 dias ou solicite sob demanda e chegaremos em menos de 30 minutos.</p>
                     </div>
                     <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
                         <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
-                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutes or 30 days</span>
-                        <p className="text-center text-sm text-gray-400">Schedule your Lugg ahead of time up to 30 days in advance or
-                            request on-demand and we’ll arrive in as little as 30 minutes.</p>
+                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutos ou 30 dias</span>
+                        <p className="text-center text-sm text-gray-400">Agende seu frete com antecedência de até 30 dias ou solicite sob demanda e chegaremos em menos de 30 minutos.</p>
                     </div>
                 </div>
             </div>
             {/* divisao */}
             <Devider />
             <div className="w-full flex flex-col w-5/6 text-center items-center lg:text-left">
-                <h1 className="text-black-600 font-bold text-3xl">A truck as big as you need</h1>
-                <p className="italic text-gray-400 mt-2" >Ranging from Pickup Trucks to Cargo Vans and Sprinter Vans.</p>
+                <h1 className="text-black-600 font-bold text-3xl">Um caminhão do tamanho que você precisa</h1>
+                <p className="italic text-gray-400 mt-2" >Variando de picapes a vans de carga e vans Sprinter.</p>
                 <div className="w-48 bg-yellow-300 mt-3  mb-10" style={{ paddingTop: 5 }} />
                 <div className="w-4/5 lg:4/5 text-center">
                     <Image src={sale} className="rounded-lg" />
@@ -99,15 +98,18 @@ export function Describe() {
                 <div className="flex flex-col items-center lg:flex-row">
                     <div className="px-4 py-2 w-10 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">1</span></div>
                     <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
-                        Request in the app</h1>
+                        Solicite no aplicativo</h1>
                 </div>
                 <div className="w-2/5 ">
-                    <p className="italic text-gray-400 mt-2 text-sm lg:text-lg text-center" >Set your pickup location and destination, choose the size of vehicle that is right for you, and when you would like us to arrive.</p>
+                    <p className="italic text-gray-400 mt-2 text-sm lg:text-lg text-center" >
+                        Defina seu local de coleta e destino, escolha o tamanho do veículo certo para você e 
+                        quando você gostaria que chegássemos.
+                    </p>
                 </div>
                 <div className="flex justify-between mt-5">
-                    <a className="w-32" href="">
+                    {/* <a className="w-32" href="">
                         <Image src={appStore} />
-                    </a>
+                    </a> */}
                     <a className="w-28 ml-2" href="">
                         <Image src={playStore} />
                     </a>
@@ -124,10 +126,13 @@ export function Describe() {
                         <div className="flex flex-col lg:flex-row">
                             <div className="px-4 py-2 w-10 self-center mb-5 lg:mb-0 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">2</span></div>
                             <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
-                                Don't lift a finger</h1>
+                            Não levante um dedo</h1>
                         </div>
                         <div className="w-4/5 ">
-                            <p className="italic text-gray-400 mt-2 text-center" >We'll take it from here. Two strong Luggers arrive to load your stuff and secure it safely. We'll see you at your destination!</p>
+                            <p className="italic text-gray-400 mt-2 text-center" >
+                                Nós vamos levá-lo daqui. Dois Luggers fortes chegam para carregar suas coisas e protegê-las com segurança.
+                                Nos vemos no seu destino!
+                            </p>
                         </div>
                     </div>
                     <div className="w-5/6 lg:w-2/6">
@@ -150,10 +155,14 @@ export function Describe() {
                         <div className="flex flex-col lg:flex-row">
                             <div className="px-4 w-10 self-center py-2 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">3</span></div>
                             <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
-                                Rate and tip</h1>
+                            Taxa e dica</h1>
                         </div>
                         <div className="w-5/6 lg:w-4/5">
-                            <p className="italic text-gray-400 mt-2 text-center" >We unload your items and place them right where you want them. Tell us about your experience and tip your Luggers for a job well done.</p>
+                            <p className="italic text-gray-400 mt-2 text-center" >
+                                Nós descarregamos seus itens e os colocamos exatamente onde você deseja.
+                                Conte-nos sobre sua experiência e dê uma gorjeta aos seus Luggers para
+                                um trabalho bem feito.
+                            </p>
                         </div>
                     </div>
                 </div>

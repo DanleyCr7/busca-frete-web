@@ -16,7 +16,7 @@ export function SectionCar() {
             </div>
 
             <div className="justify-center items-center mt-5">
-                <h1 className="text-black-600 font-bold text-3xl">A truck as big as you need</h1>
+                <h1 className="text-black-600 font-bold text-3xl">Um caminhão do tamanho que você precisa</h1>
             </div>
 
             <div>
@@ -36,7 +36,7 @@ export function SectionCar() {
                     <div className="w-3/5 h-2/5 absolute -top-20 inset-x-10">
                         <Image src={delivery} />
                     </div>
-                    <h1 className="font-normal text-2xl text-center">30 minutes or 30 days</h1>
+                    <h1 className="font-normal text-2xl text-center">30 minutos ou 30 dias</h1>
                     <p className="font-light text-gray-400 text-center">Schedule your Lugg ahead of time up to 30 days in advance or request on-demand and we’ll arrive in as little as 30 minutes.</p>
                 
                 </div>
@@ -45,7 +45,7 @@ export function SectionCar() {
                     <div className="w-3/5 h-2/5 absolute -top-20 inset-x-10">
                         <Image src={delivery} />
                     </div>
-                    <h1 className="font-normal text-2xl text-center">30 minutes or 30 days</h1>
+                    <h1 className="font-normal text-2xl text-center">30 minutos ou 30 dias</h1>
                     <p className="font-light text-gray-400 text-center">Schedule your Lugg ahead of time up to 30 days in advance or request on-demand and we’ll arrive in as little as 30 minutes.</p>
                     
                 </div>
@@ -54,7 +54,7 @@ export function SectionCar() {
                     <div className="w-3/5 h-2/5 absolute -top-20 inset-x-10">
                         <Image src={delivery} />
                     </div>
-                    <h1 className="font-normal text-2xl text-center">30 minutes or 30 days</h1>
+                    <h1 className="font-normal text-2xl text-center">30 minutos ou 30 dias</h1>
                     <p className="font-light text-gray-400 text-center">Schedule your Lugg ahead of time up to 30 days in advance or request on-demand and we’ll arrive in as little as 30 minutes.</p>
                    
                 </div>

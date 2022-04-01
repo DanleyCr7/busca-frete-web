@@ -34,10 +34,10 @@ export function Reviews() {
             </div>
             <div className="w-5/6 lg:w-3/6 text-center">
                 <p className="text-gray-400">
-                    "Lugg is THE best! Solomon and Yuri were great! For my most recent purchase I
-                    coordinated a pickup elsewhere and drop off at my place. They were fast, efficient,
-                    friendly, and extremely helpful (I needed to move a piece of furniture to make some
-                    room for the item they picked up). They were in and out in 10 minutes! Thanks a ton!"
+                    "Busca frete é o melhor! Salomão e Yuri foram ótimos! Para minha compra mais recente eu
+                    coordenou uma coleta em outro lugar e deixou na minha casa. Foram rápidos, eficientes,
+                    amigável, e extremamente útil (precisei mover um móvel para fazer alguns
+                    espaço para o item que eles pegaram). Eles entraram e saíram em 10 minutos! Muito obrigado!"
                 </p>
             </div>
             <a onMouseOut={toggleHoverOut} onMouseMove={toggleHoverLeave} className="flex lg:w-2/5 w-4/5 mb-8 lg:mb-0 items-center justify-center mt-8" href="#">

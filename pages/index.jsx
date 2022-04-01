@@ -36,12 +36,12 @@ export default function Home() {
           </nav>
           {/* --- */}
           <div className="text-center self-center rounded-full w-5/6 lg:w-4/6 bg-white py-5">
-            <p className="text-xs md:text-lg lg:text-lg">Now live in New York City! Starting today, Luggers are hitting the pavement - <a href="">learn more.</a></p>
+            <p className="text-xs md:text-lg lg:text-lg">Agora viva em Parnaíba! A partir de hoje, o busca frete está chegando.</p>
           </div>
           {/* <--> */}
           <div className="w-4/6 lg:w-full text-white self-center text-center">
             <Image className="mt-8" src={busca_frete} alt="busca frete" />
-            <h1 className="text-2xl lg:text-4xl font-light">with the push of a button</h1>
+            <h1 className="text-2xl lg:text-4xl font-light">Com o apertar de um botão</h1>
           </div>
           {/* <--> */}
           <div className="flex-col lg:flex rounded-lg mt-8 self-center justify-center rounded-md lg:w-4/6 w-4/5 bg-white">
