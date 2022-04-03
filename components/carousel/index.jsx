@@ -51,7 +51,7 @@ export function Carousel() {
             </div>
             <div className="w-4/5 lg:w-2/6 text-center">
                 <p className="text-white text-sm lg:text-lg">
-                    "Comprei uma cômoda muito grande e pesada e estava preocupada em como levá-la para casa. Lugg realmente salvou meu dia! Brett e Tamas foram super prestativos e fáceis de se comunicar. Definitivamente uma experiência cinco estrelas!"
+                    "Comprei uma cômoda muito grande e pesada e estava preocupada em como levá-la para casa. Busca frete realmente salvou meu dia! Brett e Tamas foram super prestativos e fáceis de se comunicar. Definitivamente uma experiência cinco estrelas!"
                 </p>
             </div>
             <div className="flex mt-4">

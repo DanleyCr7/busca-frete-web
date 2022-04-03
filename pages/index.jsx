@@ -50,7 +50,7 @@ export default function Home() {
               <div className="flex text-md lg:text-lg items-center">
                 <ArrowDownIcon className="h-4 w-4 lg:w-5 lg:h-5 text-blue-500 mr-2" />
                 <div className="mt-2">
-                  <label>Pickup address</label><br />
+                  <label>Endereço de retirada</label><br />
                   <input placeholder="Seu endereço" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
                 </div>
               </div>
@@ -59,13 +59,13 @@ export default function Home() {
               <div className="flex text-md lg:text-lg items-center">
                 <ArrowUpIcon className="h-4 w-4 lg:w-5 lg:h-5 text-blue-500 mr-2" />
                 <div className="mt-2">
-                  <label>Pickup address</label><br />
-                  <input placeholder="Seu endereço" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
+                  <label>Destino</label><br />
+                  <input placeholder="Destino" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
                 </div>
               </div>
 
               {/* <--> */}
-              <ButtonPerson btn={true} text="Get estimative" />
+              <ButtonPerson btn={true} text="Estimativa" />
             </form>
           </div>
         </div>
