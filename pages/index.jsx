@@ -7,10 +7,14 @@ import { useEffect } from "react";
 import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
 import { ButtonPerson } from "../components/ButtonPerson";
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter()
+
   useEffect(() => {
   }, [])
+  
   return (
     <>
       <Head>
@@ -65,7 +69,7 @@ export default function Home() {
               </div>
 
               {/* <--> */}
-              <ButtonPerson btn={true} text="Estimativa" />
+              <ButtonPerson onClick={() => router.push('/estimative')} btn={true} text="Estimativa" />
             </form>
           </div>
         </div>

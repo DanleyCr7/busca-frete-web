@@ -57,7 +57,7 @@ export function Carousel() {
             <div className="flex mt-4">
                 {carrosel.map((item, index) => {
                     return (
-                        <a onClick={() => setAvaliation(item)} className={item == avaliation ? buttonCarosel : buttonCaroselSelect} />
+                        <a key={index} onClick={() => setAvaliation(item)} className={item == avaliation ? buttonCarosel : buttonCaroselSelect} />
                     )
                 })}
             </div>
