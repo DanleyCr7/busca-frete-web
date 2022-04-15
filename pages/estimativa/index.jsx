@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Store, LocalActivity, MoveToInbox } from '@mui/icons-material';
 import MyMap from '../../components/map';
 import { ChevronDownIcon } from '@heroicons/react/solid'
@@ -49,6 +50,15 @@ export default function Estimative() {
     ];
 
     return (
+    <>
+    <Head>
+    <title>Busca frete</title>
+    <link rel="icon" href="/favicon.ico" />
+    <script
+        src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
+        async
+    ></script>
+      </Head>
         <div className='w-full'>
         <div className="lg:invisible lg:h-2">
             <MenuHamburguer />
@@ -101,5 +111,6 @@ export default function Estimative() {
             </div>
         </div>
         </div>
+        </>
     )
 }

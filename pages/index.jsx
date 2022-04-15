@@ -20,6 +20,10 @@ export default function Home() {
       <Head>
         <title>Busca frete</title>
         <link rel="icon" href="/favicon.ico" />
+        <script
+            src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
+            async
+          ></script>
       </Head>
       <div >
         <div className="flex flex-col w-full bg-hero-pattern bg-cover bg-no-repeat h-screen">
@@ -69,7 +73,7 @@ export default function Home() {
               </div>
 
               {/* <--> */}
-              <ButtonPerson onClick={() => router.push('/estimative')} btn={true} text="Estimativa" />
+              <ButtonPerson onChange={() => router.push('/estimativa')} btn={true} text="Estimativa" />
             </form>
           </div>
         </div>
