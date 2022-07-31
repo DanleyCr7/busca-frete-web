@@ -2,10 +2,9 @@ import React from 'react';
 import Head from "next/head";
 import Image from "next/image";
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 
 import { Store, LocalActivity, MoveToInbox } from '@mui/icons-material';
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon, StarIcon } from '@heroicons/react/solid'
 import { Divider } from '@mui/material';
 
 import { MenuHamburguer } from '../../components/menuHamburguer';
@@ -14,7 +13,8 @@ import MyMap from '../../components/map';
 
 // imagens
 import collaborathorTruk from "/img/collaborathorTruk.png";
-import calendarSelect from "/img/calendar-select.png";
+import moveis from "/img/moveis.png";
+import movingGeneric from "/img/moving-generic.png";
 import { Devider } from '../../components/devider';
 
 const hasWindow = typeof window !== 'undefined';
@@ -61,16 +61,29 @@ export default function Estimative() {
         'Book now',
     ];
 
+    const avaliacoes = [
+        '1',
+        '1',
+        '1',
+        '1',
+        '1',
+        '1',
+        '1',
+        '1',
+        '1',
+        '1',
+    ];
+
     return (
     <>
     <Head>
-    <title>Busca frete</title>
-    <link rel="icon" href="/favicon.ico" />
-    <script
-        src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
-        async
-    ></script>
-      </Head>
+        <title>Busca frete</title>
+        <link rel="icon" href="/favicon.ico" />
+        <script
+            src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
+            async
+        ></script>
+    </Head>
         <div className='w-full'>
         <div className="lg:invisible lg:h-2">
             <MenuHamburguer />
@@ -81,7 +94,7 @@ export default function Estimative() {
                     let buyNow = 'font-semibold border-solid border-2 border-indigo-900 rounded text-xl p-3 text-indigo-900';
                     let drawerList = 'font-semibold text-xl text-indigo-900';
                     return(
-                        <div className='lg:m-2 cursor-pointer'>
+                        <div className='lg:m-2 cursor-pointer'  key={index}>
                             <span className={index == 5 ? buyNow : drawerList }>{item}</span>
                         </div>
                     );
@@ -103,7 +116,7 @@ export default function Estimative() {
                         let col3 = 'bg-gray-100 m-1 flex flex-col items-center py-6 px-8';
                         let colFull = 'col-span-3 m-1 bg-gray-100 flex flex-col items-center py-6 px-8';
                         return(
-                            <button className={index == 6 ? colFull: col3}>   
+                            <button key={index} className={index == 6 ? colFull: col3}>   
                                 <React.Fragment>
                                     {item.icon}
                                 </React.Fragment>
@@ -141,41 +154,17 @@ export default function Estimative() {
             <Devider />
         </div>
         <div className='lg:flex lg:justify-center lg:flex-row flex flex-col'>
-            <div className='lg:w-2/6 w-4/4 px-4 mt-10 lg:mt-0'>
-                <Image src={calendarSelect} alt="me" />
-            </div>
-            <div className='lg:w-2/6 mt-5 lg:mt-0 w-4/4 px-4 mr-8'>
-                <div>
-                    <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">On your schedule</h2>
-                    <p className="text-gray-400 text-right text-lg mt-5">Tell us when to arrive, from within 1 hour up to 30 days in advance.</p>
-                </div>
-                <div className='mt-5 flex justify-end'>
-                    <ButtonPerson onChange={() => {}} btn={true} text="Iniciar" />
-                </div>
-            </div>
-        </div>
-        <div className='flex justify-center mt-5'>
-            <Devider />
-        </div>
-        <div className='lg:flex lg:justify-center lg:flex-row flex flex-col'>
             <div className='lg:w-2/6 mt-5 lg:mt-0 w-4/4 px-4'>
                 <div>
                     <h2 className="font-bold text-3xl text-gray-900 mb-3">On your schedule</h2>
                     <p className="text-gray-400 text-lg mt-5">Tell us when to arrive, from within 1 hour up to 30 days in advance.</p>
                 </div>
-                <p className="text-gray-400 text-sm font-semibold mt-5">See how we stack up against other options:</p>
-                <ButtonGroup 
-                    orientation="horizontal"
-                    aria-label="large button group"
-                    variant="outlined"
-                    color="secondary"
-                    size="small"
-                    sx={{ backgroundColor: 'white' }}
-                >
-                    <Button>One</Button>
-                    <Button>Two</Button>
-                    <Button>Three</Button>
-                </ButtonGroup>
+                <p className="text-gray-400 text-sm font-semibold mt-5 mb-4">See how we stack up against other options:</p>
+                <div className='flex'>
+                    <Button style={{backgroundColor: '#fff', color: 'rgb(40, 48, 96, 1)', border: '1px solid rgb(40, 48, 96, 1)', }}>A sofa</Button>
+                    <Button style={{backgroundColor: 'rgb(40, 48, 96, 1)', color: '#fff'}}>Leving room</Button>
+                    <Button style={{backgroundColor: 'rgb(40, 48, 96, 1)', color: '#fff'}}>1 Br.apt</Button>
+                </div>
                 <div className='mt-5'>
                     <ButtonPerson onChange={() => {}} btn={true} text="Iniciar" />
                 </div>
@@ -233,6 +222,67 @@ export default function Estimative() {
                     </div>
                 </div>
             </div>
+        </div>
+        <div className='flex justify-center mt-5'>
+            <Devider />
+        </div>
+        <div className='lg:flex lg:justify-center lg:flex-row flex flex-col'>
+            <div className='lg:w-2/6 w-4/4 px-4 mt-10 lg:mt-0'>
+                <Image src={moveis} alt="me" />
+            </div>
+            <div className='lg:w-2/6 mt-5 lg:mt-0 w-4/4 px-4 mr-8'>
+                <div>
+                    <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">Your stuff in good hands</h2>
+                    <p className="text-gray-400 text-right text-lg mt-5">All your stuff is 100% covered from the moment we pick it up until it's delivered.</p>
+                </div>
+                <div className='mt-5 flex justify-end'>
+                    <ButtonPerson onChange={() => {}} btn={true} text="Iniciar" />
+                </div>
+            </div>
+        </div>
+        <div className='flex justify-center mt-5'>
+            <Devider />
+        </div>
+        <div className='flex flex-col items-center'>
+            <p className="text-blue-400 text-right text-sm mt-5">Save time & your back</p>
+            <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">Schedule your move today</h2>
+            <ButtonPerson onChange={() => {}} btn={true} text="Iniciar estimativa" />
+            <div className='lg:w-4/6 w-4/4 px-4 mt-10 lg:mt-0'>
+                <Image src={movingGeneric} alt="me" />
+            </div>
+        </div>
+        <div className='flex justify-center mt-5'>
+            <Devider />
+        </div>
+        <div className='flex flex-col items-center mt-5 mb-5'>
+            <div className="flex">
+                <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
+                <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
+                <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
+                <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
+                <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
+            </div>
+            <h2 className="font-bold text-5xl text-gray-900 text-right">Thousands of happy customers</h2>
+            <p className="text-gray-400 text-right text-lg">Find out why thousands of people love our service.</p>
+        </div>
+        <div className='grid grid-rows-8 grid-flow-col gap-4'>
+            {avaliacoes.map((item, index) => {
+                return(
+                    <div key={index} className='flex flex-col px-4 py-3 bg-gray-100 rounded-lg'>
+                        <div className='w-44'>
+                            <p>“Lugg is such a fast, easy, and convenient service! I've used them twice now and both moves have been amazing. I highly recommend this service to anyone who has no other way to transport big items! ”</p>
+                        </div>
+                        <div className="flex mt-3">
+                            <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
+                            <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
+                            <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
+                            <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
+                            <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
+                        </div>
+                        <p className="text-gray-900 text-center font-semibold text-2xl">Luiz</p>
+                    </div>
+                )
+            })}
         </div>
         </>
     )
