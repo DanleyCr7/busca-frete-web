@@ -6,7 +6,7 @@ export const constants = {
         },
         {
             title: "Pelo menos 18 anos",
-            subtitle: "Você deve ter pelo menos 18 anos ou mais para ser um Lugger."
+            subtitle: "Você deve ter pelo menos 18 anos ou mais para ser um Buscador."
         },
         {
             title: "Forte e fisicamente capaz",

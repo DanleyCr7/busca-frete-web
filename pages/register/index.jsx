@@ -15,7 +15,7 @@ export default function Register() {
                 <div className="lg:w-3/6 my-10 lg:mt-0 lg:mb-8">
                     <h1 className="text-3xl text-white font-bold">Ganhe dinheiro com seu caminhão</h1>
                     <h1 className="text-2xl text-gray-300 font-normal">
-                        Seja ativo, conheça novas pessoas e ganhe até $ 2,5k/semana!
+                        Seja ativo, conheça novas pessoas e ganhe dinheiro!
                     </h1>
                     <div className="w-3/5 my-10">
                         <Image className="mt-8" src={vans} alt="busca frete" />
@@ -25,7 +25,7 @@ export default function Register() {
                         Não se preocupe, você ainda pode se inscrever como ajudante!
                         Possuir um veículo não é um requisito para se tornar
                         um Lugeiro. Basta selecionar "Não" para a pergunta "Você
-                        possui um caminhão e quer usá-lo com Lugg?".
+                        possui um caminhão e quer usá-lo com Busca Frete?".
                     </h1>
                     <FormRegister />
 
@@ -58,51 +58,14 @@ export default function Register() {
                             <h1 className="text-lg text-white font-bold">Faça as pessoas felizes</h1>
                             <div className="w-5/6 text-justify"> 
                                 <p className="text-normal text-gray-400">
-                                    Como um Lugger seu trabalho é tirar o estresse
+                                    Como um Buscador seu trabalho é tirar o estresse
                                     fora de movimento e entrega. Você vai fazer
                                     pessoas felizes e eles vão te amar por isso.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="my-10 ">
-                        <Divider style={{backgroundColor : '#fff'}}/>
-                    </div>
-                    <h1 className="text-3xl text-white text-center font-bold">O que você estará movendo</h1>
-                    {/*  */}
-                    <div className="flex mt-5 w-full justify-center">
-                        {/* ---- */}
-                        <div className="flex flex-col mx-10 items-center">
-                            <div className="w-24">
-                                <Image className="mt-8" src={sale_icon} alt="busca frete" />
-                            </div>
-                            <h1 className="text-white font-semibold text-xl">Compras na loja</h1>
-                        </div>
-                        {/* ---- */}
-                        <div className="flex flex-col items-center">
-                            <div className="w-24">
-                                <Image className="mt-8" src={sale_icon} alt="busca frete" />
-                            </div>
-                            <h1 className="text-white font-semibold text-xl">Compras na loja</h1>
-                        </div>
-                    </div>
-                    <div className="flex mt-5 w-full justify-center mb-10">
-                         {/* ---- */}
-                        <div className="flex flex-col mx-10 items-center">
-                            <div className="w-24">
-                                <Image className="mt-8" src={sale_icon} alt="busca frete" />
-                            </div>
-                            <h1 className="text-white font-semibold text-xl">Compras na loja</h1>
-                        </div>
-                        {/* ---- */}
-                        <div className="flex flex-col  items-center">
-                            <div className="w-24">
-                                <Image className="mt-8" src={sale_icon} alt="busca frete" />
-                            </div>
-                            <h1 className="text-white font-semibold text-xl">Compras na loja</h1>
-                        </div>
-                        {/* ---- */}
-                    </div>
+                   
                 <div className="mb-5">
                     <h1 className="text-3xl text-white text-center font-bold">Quem se qualifica</h1>
                 </div>
