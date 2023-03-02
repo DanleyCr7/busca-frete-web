@@ -22,7 +22,7 @@ import { Footer } from "../footer"
 export function Describe() {
     return (
         <div className="h-screen w-full bg-blue h-20 flex flex-col items-center py-10 mb-20">
-            <h1 className="not-italic text-black-600 font-bold text-3xl">Nós temos suas costas</h1>
+            <h1 className="not-italic text-black-600 font-bold text-3xl">Nós carregamos por você.</h1>
             <p className="italic text-gray-400 mt-2">
                 Carregamos, transportamos e entregamos qualquer coisa
             </p>
@@ -61,27 +61,27 @@ export function Describe() {
                     Economize tempo e energia
                 </h1>
                 <div className="flex flex-col lg:flex-row mt-20">
-                    <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
+                    <div className="w-50 lg:w-64 flex flex-col items-center mx-10">
                         <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
                         <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutos ou 30 dias</span>
                         <p className="text-center text-sm text-gray-400">Agende seu frete com antecedência de até 30 dias ou solicite sob demanda e chegaremos em menos de 30 minutos.</p>
                     </div>
-                    <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
+                    <div className="w-50 lg:w-64 flex flex-col items-center mx-10">
                         <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
-                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutos ou 30 dias</span>
-                        <p className="text-center text-sm text-gray-400">Agende seu frete com antecedência de até 30 dias ou solicite sob demanda e chegaremos em menos de 30 minutos.</p>
+                        <span className="text-lg not-italic text-black-600 font-bold text-center">Não levante um dedo</span>
+                        <p className="text-center text-sm text-gray-400">Nossos colaboradores cuidaram de toda a mundança pra você.</p>
                     </div>
-                    <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
+                    {/* <div className="w-50 lg:w-60 flex flex-col items-center mx-10">
                         <div className="w-24 mt-5 lg:mt-0 lg:w-35">
                             <Image src={delivery} />
                         </div>
-                        <span className="text-lg not-italic text-black-600 font-bold text-center">30 minutos ou 30 dias</span>
+                        <span className="text-lg not-italic text-black-600 font-bold text-center">Uma comunidade focada na qualidade</span>
                         <p className="text-center text-sm text-gray-400">Agende seu frete com antecedência de até 30 dias ou solicite sob demanda e chegaremos em menos de 30 minutos.</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* divisao */}
@@ -130,7 +130,7 @@ export function Describe() {
                         </div>
                         <div className="w-4/5 ">
                             <p className="italic text-gray-400 mt-2 text-center" >
-                                Nós vamos levá-lo daqui. Dois Luggers fortes chegam para carregar suas coisas e protegê-las com segurança.
+                                Nós vamos levá-lo daqui. Dois Fretista fortes chegam para carregar suas coisas e protegê-las com segurança.
                                 Nos vemos no seu destino!
                             </p>
                         </div>
@@ -160,7 +160,7 @@ export function Describe() {
                         <div className="w-5/6 lg:w-4/5">
                             <p className="italic text-gray-400 mt-2 text-center" >
                                 Nós descarregamos seus itens e os colocamos exatamente onde você deseja.
-                                Conte-nos sobre sua experiência e dê uma gorjeta aos seus Luggers para
+                                Conte-nos sobre sua experiência e dê uma gorjeta aos seus Fretista para
                                 um trabalho bem feito.
                             </p>
                         </div>
@@ -170,7 +170,7 @@ export function Describe() {
                 </div>
                 <div className="w-5/6 bg-gray-200 lg:mt-20 mb-20 h-px" style={{ paddingTop: 0.08 }}>
                 </div>
-                <Reviews />
+                {/* <Reviews /> */}
                 <Parceria />
                 <Footer />
             </div>

@@ -1,13 +1,13 @@
 import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import {collection, addDoc, Timestamp} from 'firebase/firestore'
 import {db} from '../../firebase'
-import { Alert } from "@mui/material";
 import Context from "../../pages/Context";
 
 export function FormRegister() {
     const [open, setOpen] = useContext(Context);
+    const [zap, setZap] = useState();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -17,7 +17,7 @@ export function FormRegister() {
                 telefone: e.target['telefone'].value,
                 bairro: e.target['bairro'].value,
                 referencia: e.target['referencia'].value,
-                telefone_trabalho: e.target['telefone_trabalho'].value,
+                // telefone_trabalho: e.target['telefone_trabalho'].value,
                 peso: e.target['peso'].value == "sim" ? true : false,
                 usa_carro: e.target['usa_carro'].value == "sim" ? true : false,
                 trabalha_finais_de_semana: e.target['trabalha_finais_de_semana'].value == "sim" ? true : false,
@@ -28,6 +28,10 @@ export function FormRegister() {
         } catch (err) {
             setOpen(true);
         }
+    }
+
+    const handleChange = (event) => {
+        setZap(event.target['telefone'].value.replace(/[^\d\s-/]/g, ""));
     }
     
     return (
@@ -41,8 +45,8 @@ export function FormRegister() {
                             
                         {/* <--> */}
                         <div className="w-full">
-                            <label className="text-md text-gray-500">Telefone</label><br />
-                            <input name="telefone" placeholder="Telefone" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                            <label className="text-md text-gray-500">Celular (zap)</label><br />
+                            <input name="telefone" value={zap} onChange={handleChange} placeholder="Telefone" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
                         </div>
 
                         {/* <--> */}
@@ -64,10 +68,10 @@ export function FormRegister() {
                         </div>
                             
                         {/* <--> */}
-                        <div className="w-full">
+                        {/* <div className="w-full">
                             <label className="text-md text-gray-500">Seu telefone de trabalho?</label><br />
                             <input name="telefone_trabalho" placeholder="Seu telefone" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
-                        </div>
+                        </div> */}
                             
                         {/* <--> */}
                         <div className="w-full">
