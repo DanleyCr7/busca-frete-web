@@ -38,8 +38,8 @@ export default function Home() {
             <p className="text-xs md:text-lg lg:text-lg">Agora viva em Parnaíba! A partir de hoje, o busca frete está chegando.</p>
           </div>
           {/* <--> */}
-          <div className="w-6/6 text-center">
-            {/* <Image className="mt-8" src={busca_frete} alt="busca frete" /> */}
+          <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+            <Image src={busca_frete}  className="w-3/6" alt="busca frete" />
             {/* <h1 className="text-2xl lg:text-4xl font-light">Com o apertar de um botão</h1> */}
           </div>
           
