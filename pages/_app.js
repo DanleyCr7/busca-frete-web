@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css'
 import CustomizedSnackbars from '../components/alert'
 import Head from "next/head";
 
-import Context from './Context';
+import Context from './context';
 function MyApp({ Component, pageProps }) {
   const [open, setOpen] =  React.useState(false);
   return (

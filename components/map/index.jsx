@@ -19,17 +19,9 @@ function MyMap() {
 
   return (
     <Html lang="en">
-    <Head>
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="application-name" content="App" />
-      <script
-        src={`https://maps.googleapis.com/maps/api/js?key=${'AIzaSyCNa7ZY48E0O3acp6qr68sjf_n0cIGv1bY'}&callback=initMap&libraries=&v=weekly`}
-        async
-      ></script>
-    </Head>
     <body>
-      <Main />
-      <NextScript />
+      {/* <Main />
+      <NextScript /> */}
     </body>
   </Html>
   );

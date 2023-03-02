@@ -1,7 +1,7 @@
 import { useState, useContext} from 'react';
 import Button from '@mui/material/Button';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-import Context from '../../pages/Context';
+import Context from '../../pages/context';
 
 
 export default function PositionedSnackbar() {
