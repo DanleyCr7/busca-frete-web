@@ -37,11 +37,9 @@ export default function Home() {
           <div className="text-center self-center rounded-full w-5/6 lg:w-4/6 bg-white py-5">
             <p className="text-xs md:text-lg lg:text-lg">Agora viva em Parnaíba! A partir de hoje, o busca frete está chegando.</p>
           </div>
-          {/* <--> */}
-          <div className="text-center">
             <Image className="mt-8 w-2/6" src={busca_frete} alt="busca frete" />
+          {/* <--> */}
             {/* <h1 className="text-2xl lg:text-4xl font-light">Com o apertar de um botão</h1> */}
-          </div>
           
           {/* <div className="flex-col lg:flex rounded-lg mt-8 self-center justify-center rounded-md lg:w-4/6 w-4/5 bg-white">
             <form className="flex-col flex lg:flex-row text-gray-400 pt-3 lg:justify-between lg:items-center w-full px-5 items-start" action="">
