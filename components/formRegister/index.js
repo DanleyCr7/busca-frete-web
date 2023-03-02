@@ -3,7 +3,7 @@ import { RadioPerson } from "../radio";
 import {useContext, useState} from 'react'
 import {collection, addDoc, Timestamp} from 'firebase/firestore'
 import {db} from '../../firebase'
-import Context from "../../pages/context";
+import Context from "../../plugins/context";
 
 export function FormRegister() {
     const [open, setOpen] = useContext(Context);
