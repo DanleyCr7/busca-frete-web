@@ -7,7 +7,7 @@ import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
 import { ButtonPerson } from "../components/ButtonPerson";
 import { useRouter } from 'next/router';
-
+import Link from "next/link";
 export default function Home() {
   const router = useRouter()
 
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <div >
-        <div className="flex flex-col w-full bg-hero-pattern bg-cover bg-no-repeat h-screen">
+        <div className="flex flex-col w-full bg-hero-pattern sm:bg-auto md:bg-cover sm:bg-center bg-cover bg-no-repeat h-screen">
           {/* --- */}
           <nav className="flex justify-between items-center px-5">
             <Image src={logo} alt="me" width="64" height="64" />
@@ -25,12 +25,12 @@ export default function Home() {
               <li className="mx-2">
                 <button></button>
               </li>
-              {/* <li className="mx-2">
-                <button>Sobre</button>
+              <li className="mx-2">
+                <a className="animate-bounce flex flex-col items-center cursor-pointer text-gray-700 w-full rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-1 px-1 lg:py-3" href="#trabalhe-conosco" scroll={true}>Trabalhe conosco</a>
               </li>
               <li className="mx-2">
-                <button>Contato</button>
-              </li> */}
+                <Link href="#sobre" scroll={true}>Sobre</Link>
+              </li>
             </ul>
           </nav>
           {/* --- */}
@@ -75,3 +75,4 @@ export default function Home() {
     </>
   );
 }
+

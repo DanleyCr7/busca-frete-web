@@ -6,7 +6,7 @@ export function Parceria() {
     const router = useRouter()
 
     return (
-        <div className="w-5/6 flex justify-between bg-parceria rounded-lg mb-10 px-10" style={{backgroundColor: Colors.colorPatern}}>
+        <div  id="trabalhe-conosco" className="w-5/6 flex justify-between bg-parceria rounded-lg mb-10 px-10" style={{backgroundColor: Colors.colorPatern}}>
             <div className="py-8">
                 <h1 className="text-xl lg:text-3xl text-white">Trabalho conosco</h1>
                 <p className="text-sm lg:text-lg font-medium text-gray-200 mt-2">Se você quer fazer mais entregas e melhorar sua renda, venha ser nosso parceiro.</p>

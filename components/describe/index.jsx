@@ -86,7 +86,7 @@ export function Describe() {
             </div>
             {/* divisao */}
             <Devider />
-            <div className="w-full flex flex-col w-5/6 text-center items-center lg:text-left">
+            <div id="sobre" className="w-full flex flex-col w-5/6 text-center items-center lg:text-left">
                 <h1 className="text-black-600 font-bold text-3xl">Um caminhão do tamanho que você precisa</h1>
                 <p className="italic text-gray-400 mt-2" >Variando de picapes a vans de carga e vans Sprinter.</p>
                 <div className="w-48 bg-yellow-300 mt-3  mb-10" style={{ paddingTop: 5 }} />
