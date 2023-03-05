@@ -17,10 +17,10 @@ export default function Home() {
   return (
     <>
       <div >
-        <div className="flex flex-col w-full md:bg-hero-pattern bg-cover bg-hero-pattern-mobile sm:bg-auto md:bg-cover sm:bg-center bg-cover bg-no-repeat h-screen">
+        <div className="flex flex-col w-full pt-4 md:bg-hero-pattern bg-cover bg-hero-pattern-mobile sm:bg-auto md:bg-cover sm:bg-center bg-cover bg-no-repeat h-screen">
           {/* --- */}
           <nav className="flex justify-between items-center px-5">
-            <div className="lg:w-42 w-12">
+            <div className="lg:w-42 w-12 my-2">
               <Image src={logo} alt="me"/>
             </div>
             <ul className="flex font-light text-white text-base">
