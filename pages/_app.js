@@ -2,8 +2,8 @@ import * as React from 'react';
 import 'tailwindcss/tailwind.css'
 import CustomizedSnackbars from '../components/alert'
 import Head from "next/head";
-
-import Context from './Context';
+import '../styles/globals.css'
+import Context from '../plugins/context';
 function MyApp({ Component, pageProps }) {
   const [open, setOpen] =  React.useState(false);
   return (

@@ -126,9 +126,9 @@ export default function Estimative() {
                             })}
                         </div>
                         {/* mapa */}
-                        <div className='p-1 lg:pl-0 pl-6 justify-self-center'>
+                        {/* <div className='p-1 lg:pl-0 pl-6 justify-self-center'>
                             <MyMap />
-                        </div>
+                        </div> */}
                     </div>
                     <div className='flex flex-col items-center mt-8 mb-4 text-indigo-700'>
                         <span className='font-semibold'>Learn more about how it works</span>

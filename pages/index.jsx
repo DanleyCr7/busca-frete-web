@@ -7,7 +7,7 @@ import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
 import { ButtonPerson } from "../components/ButtonPerson";
 import { useRouter } from 'next/router';
-
+import Link from "next/link";
 export default function Home() {
   const router = useRouter()
 
@@ -17,20 +17,19 @@ export default function Home() {
   return (
     <>
       <div >
-        <div className="flex flex-col w-full bg-hero-pattern bg-cover bg-no-repeat h-screen">
+        <div className="flex flex-col w-full md:bg-hero-pattern bg-cover bg-hero-pattern-mobile sm:bg-auto md:bg-cover sm:bg-center bg-cover bg-no-repeat h-screen">
           {/* --- */}
           <nav className="flex justify-between items-center px-5">
-            <Image src={logo} alt="me" width="64" height="64" />
+            <div className="lg:w-42 w-12">
+              <Image src={logo} alt="me"/>
+            </div>
             <ul className="flex font-light text-white text-base">
               <li className="mx-2">
-                <button></button>
-              </li>
-              {/* <li className="mx-2">
-                <button>Sobre</button>
+                <a  href="#trabalhe-conosco" className="animate-bounce flex flex-col items-center cursor-pointer text-gray-700 w-full rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-1 px-1 lg:py-3">Trabalhe conosco</a>
               </li>
               <li className="mx-2">
-                <button>Contato</button>
-              </li> */}
+                <a href="#sobre">Sobre</a>
+              </li>
             </ul>
           </nav>
           {/* --- */}
@@ -38,8 +37,10 @@ export default function Home() {
             <p className="text-xs md:text-lg lg:text-lg">Agora viva em Parnaíba! A partir de hoje, o busca frete está chegando.</p>
           </div>
           {/* <--> */}
-          <div className="w-4/6 lg:w-full text-white self-center text-center">
-            <Image className="mt-8" src={busca_frete} alt="busca frete" />
+          <div  style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+            <div className="lg:w-3/6 w-5/6">
+              <Image src={busca_frete} alt="busca frete" />
+            </div>
             {/* <h1 className="text-2xl lg:text-4xl font-light">Com o apertar de um botão</h1> */}
           </div>
           
@@ -75,3 +76,4 @@ export default function Home() {
     </>
   );
 }
+
