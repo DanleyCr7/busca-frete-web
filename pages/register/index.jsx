@@ -7,18 +7,21 @@ import { useRef } from "react";
 import { FormRegister } from "../../components/formRegister";
 import { constants } from "../../plugins/constants";
 import busca_frete from "/img/busca_frete.png"
+import { useRouter } from 'next/router';
 
 export default function Register() {
     const ref = useRef();
+    const router = useRouter()
+
     return (
         <div className="items-center flex flex-col bg-parceria-register bg-no-repeat bg-black w-full pt-5 ">
             {/* --- */}
             <nav className="w-full flex justify-between items-center px-4">
-                    <a href="">
+                    <button onClick={() => router.back()}>
                         <div className="lg:w-48 w-48">
                             <Image src={busca_frete} alt="busca frete" />
                         </div>
-                    </a>
+                    </button>
                 <ul className="flex font-light text-white text-base">
                     <li></li>
                 </ul>
