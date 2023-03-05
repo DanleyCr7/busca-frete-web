@@ -6,11 +6,24 @@ import { Divider } from "@mui/material";
 import { useRef } from "react";
 import { FormRegister } from "../../components/formRegister";
 import { constants } from "../../plugins/constants";
+import busca_frete from "/img/busca_frete.png"
 
 export default function Register() {
     const ref = useRef();
     return (
-        <div className="items-center flex flex-col bg-parceria-register bg-no-repeat bg-black w-full lg:pt-20">
+        <div className="items-center flex flex-col bg-parceria-register bg-no-repeat bg-black w-full pt-5 ">
+            {/* --- */}
+            <nav className="w-full flex justify-between items-center px-4">
+                    <a href="">
+                        <div className="lg:w-48 w-48">
+                            <Image src={busca_frete} alt="busca frete" />
+                        </div>
+                    </a>
+                <ul className="flex font-light text-white text-base">
+                    <li></li>
+                </ul>
+            </nav>
+            {/* --- */}
             <div className="flex flex-col relative lg:flex-row w-full lg:w-5/6 px-4 self-center lg:mt-20">
                 <div className="lg:w-3/6 my-10 lg:mt-0 lg:mb-8">
                     <h1 className="text-3xl text-white font-bold">Ganhe dinheiro com seu caminhão</h1>
