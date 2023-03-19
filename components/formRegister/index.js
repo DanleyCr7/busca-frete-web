@@ -21,17 +21,17 @@ export function FormRegister() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            var phoneExist = await findNumberPhoneExisting(e.target['telefone'].value);
-            
-            if(phoneExist){
-                successContext.openDialog(false, "Esse número de telefone já está cadastrado");
-                return;
-            }
-
             var empty_field = await verifyFieldsEmpety(fields, e.target);
             
             if(empty_field){
                 successContext.openDialog(false, "Preencha todos os campos");
+                return;
+            }
+
+            var phoneExist = await findNumberPhoneExisting(e.target['telefone'].value);
+            
+            if(phoneExist){
+                successContext.openDialog(false, "Esse número de telefone já está cadastrado");
                 return;
             }
             
