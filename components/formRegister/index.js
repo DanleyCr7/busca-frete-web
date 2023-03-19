@@ -2,7 +2,7 @@ import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext} from 'react'
 import SuccessContext from "../../context/successContext";
-import { verifyFieldsEmpety, saveMotorist }  from '../formRegister/services/empty_fields'
+import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 export function FormRegister() {
     const successContext = useContext(SuccessContext);
@@ -21,12 +21,21 @@ export function FormRegister() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+            var phoneExist = await findNumberPhoneExisting(e.target['telefone'].value);
+            
+            if(phoneExist){
+                successContext.openDialog(false, "Esse número de telefone já está cadastrado");
+                return;
+            }
+
             var empty_field = await verifyFieldsEmpety(fields, e.target);
+            
             if(empty_field){
                 successContext.openDialog(false, "Preencha todos os campos");
                 return;
             }
-            await saveMotorist(e.target);
+            
+            await saveDriver(e.target);
             successContext.openDialog();
         } catch (err) {
             successContext.openDialog(false, err);
