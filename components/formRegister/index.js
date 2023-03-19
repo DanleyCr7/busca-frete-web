@@ -1,31 +1,44 @@
 import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
-import {useContext, useState} from 'react'
-import {collection, addDoc, Timestamp} from 'firebase/firestore'
-import {db} from '../../firebase'
-import Context from "../../plugins/context";
-
+import {useContext} from 'react'
+import SuccessContext from "../../context/successContext";
+import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting }  from './services/form_register'
+import { IMaskInput } from "react-imask";
 export function FormRegister() {
-    const [open, setOpen] = useContext(Context);
+    const successContext = useContext(SuccessContext);
+    const mask = [{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }];
+
+    const fields =  [
+       'nome',
+       'telefone',
+       'bairro',
+       'referencia',
+       'peso',
+       'usa_carro',
+       'trabalha_finais_de_semana',
+    ];
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await addDoc(collection(db, 'motoristas'), {
-                nome: e.target['nome'].value,
-                telefone: e.target['telefone'].value,
-                bairro: e.target['bairro'].value,
-                referencia: e.target['referencia'].value,
-                telefone_trabalho: e.target['telefone_trabalho'].value,
-                peso: e.target['peso'].value == "sim" ? true : false,
-                usa_carro: e.target['usa_carro'].value == "sim" ? true : false,
-                trabalha_finais_de_semana: e.target['trabalha_finais_de_semana'].value == "sim" ? true : false,
-                created: Timestamp.now()
-            })
+            var empty_field = await verifyFieldsEmpety(fields, e.target);
+            
+            if(empty_field){
+                successContext.openDialog(false, "Preencha todos os campos");
+                return;
+            }
 
-            setOpen(true);
+            var phoneExist = await findNumberPhoneExisting(e.target['telefone'].value);
+            
+            if(phoneExist){
+                successContext.openDialog(false, "Esse número de telefone já está cadastrado");
+                return;
+            }
+            
+            await saveDriver(e.target);
+            successContext.openDialog();
         } catch (err) {
-            setOpen(true);
+            successContext.openDialog(false, err);
         }
     }
     
@@ -41,13 +54,7 @@ export function FormRegister() {
                         {/* <--> */}
                         <div className="w-full">
                             <label className="text-md text-gray-500">Celular (zap)</label><br />
-                            <input name="telefone" placeholder="Telefone" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
-                        </div>
-
-                        {/* <--> */}
-                        <div className="w-full">
-                            <label className="text-md text-gray-500">Email</label><br />
-                            <input name="email" placeholder="Email" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                            <IMaskInput mask={mask} name="telefone" placeholder="Telefone" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
                         </div>
 
                         {/* <--> */}
