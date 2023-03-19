@@ -88,7 +88,7 @@ export default function Register() {
                     {
                         constants.quem_se_qualifica.map((item, index)=>{
                             return(
-                            <div className="flex mt-5">
+                            <div className="flex mt-5" key={index}>
                                 <div className="px-4 py-2 w-10 h-10 rounded-full bg-blue-500 mx-3">
                                     <span className="text-white font-sans">{index + 1}</span>
                                 </div>
@@ -109,7 +109,7 @@ export default function Register() {
                     {
                         constants.have_questions.map((item, index)=>{
                             return(
-                                <div className="ml-2">
+                                <div className="ml-2" key={index}>
                                     <h1 className="text-white font-semibold text-2xl lg:text-2xl">{item.title}</h1>
                                     <p className="text-gray-400 mt-2 text-sm lg:text-base text-left" >{item.subtitle}</p>
                                 </div>
