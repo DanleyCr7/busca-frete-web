@@ -2,7 +2,7 @@ import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext} from 'react'
 import SuccessContext from "../../context/successContext";
-import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting }  from './services/form_register'
+import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting, resgisterUser, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 export function FormRegister() {
     const successContext = useContext(SuccessContext);
@@ -21,22 +21,34 @@ export function FormRegister() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            var empty_field = await verifyFieldsEmpety(fields, e.target);
+            
+            const [
+                empty_field, phoneExist, emailIsValid
+            ] = await Promise.all([
+                verifyFieldsEmpety(fields, e.target), 
+                findNumberPhoneExisting(e.target['telefone'].value),
+                checkEmailIsValid(e.target['email'].value)
+            ]);
             
             if(empty_field){
                 successContext.openDialog(false, "Preencha todos os campos");
                 return;
             }
-
-            var phoneExist = await findNumberPhoneExisting(e.target['telefone'].value);
             
             if(phoneExist){
                 successContext.openDialog(false, "Esse número de telefone já está cadastrado");
                 return;
             }
-            
-            await saveDriver(e.target);
-            successContext.openDialog();
+
+            if(emailIsValid){
+                successContext.openDialog(false, "Email inválido");
+                return;
+            }
+
+            // await resgisterUser(e.target['email'].value);
+
+            // await saveDriver(e.target);
+            // successContext.openDialog();
         } catch (err) {
             successContext.openDialog(false, err);
         }
@@ -50,7 +62,13 @@ export function FormRegister() {
                             <label className="text-md text-gray-500">Nome</label><br />
                             <input name="nome" placeholder="Digite seu nome" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
                         </div>
-                            
+                        
+                        {/* <--> */}
+                        <div className="w-full">
+                            <label className="text-md text-gray-500">Email</label><br />
+                            <input name="email" placeholder="Digite seu email" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                        </div>
+                        
                         {/* <--> */}
                         <div className="w-full">
                             <label className="text-md text-gray-500">Celular (zap)</label><br />
