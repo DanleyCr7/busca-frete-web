@@ -21,36 +21,11 @@ export function FormRegister() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            
-            const [
-                empty_field, phoneExist, emailIsValid
-            ] = await Promise.all([
-                verifyFieldsEmpety(fields, e.target), 
-                findNumberPhoneExisting(e.target['telefone'].value),
-                checkEmailIsValid(e.target['email'].value)
-            ]);
-            
-            if(empty_field){
-                successContext.openDialog(false, "Preencha todos os campos");
-                return;
-            }
-            
-            if(phoneExist){
-                successContext.openDialog(false, "Esse número de telefone já está cadastrado");
-                return;
-            }
-
-            if(emailIsValid){
-                successContext.openDialog(false, "Email inválido");
-                return;
-            }
-
-            // await resgisterUser(e.target['email'].value);
-
-            // await saveDriver(e.target);
-            // successContext.openDialog();
+            await saveDriver(e.target);
+            successContext.openDialog();
         } catch (err) {
-            successContext.openDialog(false, err);
+            console.log(err);
+            // successContext.openDialog(false, err);
         }
     }
     

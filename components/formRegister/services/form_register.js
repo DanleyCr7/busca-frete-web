@@ -1,6 +1,5 @@
-import { addDoc, collection, getDocs, Timestamp } from "firebase/firestore";
-import { db, auth } from '../../../firebase';
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import { Timestamp } from "firebase/firestore";
+import api from '../../../config/axios';
 
 export const verifyFieldsEmpety = async ( fields = [], target) => {
     var empty_field = false;
@@ -13,24 +12,26 @@ export const verifyFieldsEmpety = async ( fields = [], target) => {
 }
 
 export const saveDriver = async (target) => {
-    await addDoc(collection(db, 'motoristas'), {
-        nome: target['nome']?.value,
-        telefone: target['telefone']?.value,
-        bairro: target['bairro']?.value,
-        referencia: target['referencia']?.value,
-        peso: target['peso']?.value == "sim" ? true : false,
-        usa_carro: target['usa_carro']?.value == "sim" ? true : false,
-        trabalha_finais_de_semana: target['trabalha_finais_de_semana']?.value == "sim" ? true : false,
-        created: Timestamp.now()
-    });
-}
 
-export const resgisterUser = (email, password = 'busca@frete') => {
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((res) => {
-        console.log(res.user)
-    })
-    .catch(err => console.log(err.message));
+    try {
+        var form = {
+            nome: target['nome']?.value,
+            telefone: target['telefone']?.value,
+            bairro: target['bairro']?.value,
+            referencia: target['referencia']?.value,
+            peso: target['peso']?.value == "sim" ? true : false,
+            usa_carro: target['usa_carro']?.value == "sim" ? true : false,
+            trabalha_finais_de_semana: target['trabalha_finais_de_semana']?.value == "sim" ? true : false,
+            created: Timestamp.now()
+        };
+    
+        return api.post('drivers', 
+            form
+        );
+    } catch (error) {
+        return error;
+    }
+    
 }
 
 export const checkEmailIsValid = ( email ) => {
@@ -46,22 +47,7 @@ export const checkEmailIsValid = ( email ) => {
 
 }
 
-export const findNumberPhoneExisting = async (phone) => {
-    var phoneExist = false;
-    const drivers = await allDrivers();
 
-    drivers.map(item => {
-        if(phone == item?.telefone){
-            phoneExist = true;
-        }
-    })
+export const allDrivers = () => {
 
-    return phoneExist;
 }
-
-
-export const allDrivers = () => getDocs(collection(db, "motoristas")).then((querySnapshot)=>{               
-    const newData = querySnapshot.docs
-        .map((doc) => ({...doc.data(), id:doc.id }));
-    return newData;
-})
