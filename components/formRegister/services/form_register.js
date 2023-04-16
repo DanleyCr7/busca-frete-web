@@ -47,7 +47,3 @@ export const checkEmailIsValid = ( email ) => {
 
 }
 
-
-export const allDrivers = () => {
-
-}

@@ -4,6 +4,7 @@ import {useContext} from 'react'
 import SuccessContext from "../../context/successContext";
 import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting, resgisterUser, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
+
 export function FormRegister() {
     const successContext = useContext(SuccessContext);
     const mask = [{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }];
@@ -24,8 +25,7 @@ export function FormRegister() {
             await saveDriver(e.target);
             successContext.openDialog();
         } catch (err) {
-            console.log(err);
-            // successContext.openDialog(false, err);
+            successContext.openDialog(false, err);
         }
     }
     
