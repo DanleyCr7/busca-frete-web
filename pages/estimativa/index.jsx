@@ -16,6 +16,7 @@ import collaborathorTruk from "/img/collaborathorTruk.png";
 import moveis from "/img/moveis.png";
 import movingGeneric from "/img/moving-generic.png";
 import { Devider } from '../../components/devider';
+import { FormRequestFreight } from '../../components/formRegister';
 
 const hasWindow = typeof window !== 'undefined';
 
@@ -104,26 +105,31 @@ export default function Estimative() {
                     <Divider className='w-3/6 mt-5' />
                 </div>
 
-                <div className="items-center flex flex-col w-full lg:pt-5">
+                <div className="items-center flex flex-col lg:pt-5">
                     <div className="text-center mb-4">
                         <h2 className="font-bold text-3xl text-gray-700">Get an estimate</h2>
                         <span className="text-gray-400 text-lg">Tell us a bit about your move and we’ll help you calculate the cost.</span>
                     </div>
                     <div className='flex lg:flex-row md:flex-row flex-col'>
                         {/* quadrados */}
-                        <div className='grid grid-cols-3'>
-                            {icons.map((item, index) => {
-                                let col3 = 'bg-gray-100 m-1 flex flex-col items-center py-6 px-8';
-                                let colFull = 'col-span-3 m-1 bg-gray-100 flex flex-col items-center py-6 px-8';
-                                return (
-                                    <button key={index} className={index == 6 ? colFull : col3}>
-                                        <React.Fragment>
-                                            {item.icon}
-                                        </React.Fragment>
-                                        <span className='lg:text-md text-sm font-semibold'>{item.name}</span>
-                                    </button>
-                                )
-                            })}
+                        <div className='md:w-3/6 w-full'>
+                            <div className='grid grid-cols-3'>
+                                {icons.map((item, index) => {
+                                    let col3 = 'bg-gray-100 m-1 flex flex-col items-center py-6 px-8';
+                                    let colFull = 'col-span-3 m-1 bg-gray-100 flex flex-col items-center py-6 px-8';
+                                    return (
+                                        <button key={index} className={index == 6 ? colFull : col3}>
+                                            <React.Fragment>
+                                                {item.icon}
+                                            </React.Fragment>
+                                            <span className='lg:text-md text-sm font-semibold'>{item.name}</span>
+                                        </button>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div className='md:w-3/6 w-full'>
+                            <FormRequestFreight/>
                         </div>
                         {/* mapa */}
                         {/* <div className='p-1 lg:pl-0 pl-6 justify-self-center'>
