@@ -16,7 +16,7 @@ import collaborathorTruk from "/img/collaborathorTruk.png";
 import moveis from "/img/moveis.png";
 import movingGeneric from "/img/moving-generic.png";
 import { Devider } from '../../components/devider';
-import { FormRequestFreight } from '../../components/formRegister';
+import { FormRequestFreight } from '../../components/requestFreight';
 
 const hasWindow = typeof window !== 'undefined';
 
@@ -80,10 +80,10 @@ export default function Estimative() {
             <Head>
                 <title>Busca frete</title>
                 <link rel="icon" href="/favicon.ico" />
-                <script
+                {/* <script
                     src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
                     async
-                ></script>
+                ></script> */}
             </Head>
             <div className='w-full'>
                 <div className="lg:invisible lg:h-2">

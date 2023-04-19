@@ -43,8 +43,7 @@ export default function Register() {
                         um Lugeiro. Basta selecionar "Não" para a pergunta "Você
                         possui um caminhão e quer usá-lo com Busca Frete?".
                     </h1>
-                    <FormRegister />
-
+                    <FormRegister/>
                     <div className="my-10 py-10">
                         <Divider style={{backgroundColor : '#fff'}}/>
                     </div>
