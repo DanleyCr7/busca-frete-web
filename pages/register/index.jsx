@@ -4,7 +4,7 @@ import money from "/img/money.png"
 import Image from "next/image";
 import { Divider } from "@mui/material";
 import { useRef } from "react";
-import { FormRegister } from "../../components/formRegister";
+import { FormRegister } from "../../components/formRegisterDriver";
 import { constants } from "../../plugins/constants";
 import busca_frete from "/img/busca_frete.png"
 import { useRouter } from 'next/router';

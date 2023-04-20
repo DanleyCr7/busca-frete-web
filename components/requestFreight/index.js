@@ -1,14 +1,16 @@
 import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import SuccessContext from "../../context/successContext";
-import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting, resgisterUser, checkEmailIsValid }  from './services/form_register'
+import { verifyFieldsEmpety, saveClient, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
-import { IconButton } from "@mui/material";
+import { Chip, IconButton } from "@mui/material";
 import { AddCircle } from "@mui/icons-material";
 
 export function FormRequestFreight() {
     const successContext = useContext(SuccessContext);
+    const [itens, setItens] = useState([]);
+    const [item, setItem] = useState('');
     const mask = [{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }];
 
     const fields =  [
@@ -22,14 +24,43 @@ export function FormRequestFreight() {
     ];
 
     const handleSubmit = async (e) => {
-        // e.preventDefault()
-        // try {
-        //     let driver = await saveDriver(e.target);
-        //     successContext.openDialog();
-        // } catch (err) {
-        //     successContext.openDialog(false, err);
-        // }
+        e.preventDefault()
+        try {
+            var empty_field = await verifyFieldsEmpety(fields, e.target);
+
+            if(empty_field){
+                successContext.openDialog(false, "Preencha todos os campos");
+                return;
+            }
+            
+            await saveClient(e.target);
+            
+            successContext.openDialog();
+        } catch (err) {
+            successContext.openDialog(false, err);
+        }
     }
+
+
+    const addItem = () => {
+        let itens_push = itens;
+        itens_push.push(item);
+
+        setItens(itens_push);
+        setItem('');
+    }
+
+    const removeItem = (index) => {
+        let itens_push = itens;
+        itens_push.splice(index, 1);
+        // console.log(itens_push);
+        // setItens(itens_push);
+        setItens([]);
+        setItens(itens_push);
+        // setItem('');
+    }
+
+
     
     return (
         <div className="lg:top-0 mt-10 mb-10 lg:mt-0 bg-white px-8 pt-5 rounded-lg">
@@ -59,16 +90,25 @@ export function FormRequestFreight() {
                         </div>
                             
                         {/* <--> */}
-                        <div className="w-full flex w-full items-center bg-green">
-                            <div className="w-5/6">
+                        <div className="w-full flex w-full bg-green">
+                            <div  className="w-5/6">
                                 <label className="text-md text-gray-500">Item</label><br />
-                                <input name="items" placeholder="Adicione 1 item por vez" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                                <input name="items" value={item} onChange={(e) => setItem(e.target.value)} placeholder="Adicione 1 item por vez" className="font-normal border-b-[1px] w-full placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" />
+                                <span className="text-md text-gray-500 text-sm font-light">Exemplo: Geladeira</span><br />
                             </div>
-                            <div className="w-1/6">
-                                <IconButton aria-label="add">
+                            {/*  */}
+                            <div className="w-1/6 pt-4">
+                                <IconButton onClick={() => addItem()} aria-label="add">
                                     <AddCircle />
                                 </IconButton>
                             </div>
+                        </div>
+                        <div className='grid grid-cols-3'>
+                            {itens.map((item, index) => {
+                                return(
+                                    <Chip key={index} label={item}  className='ml-1' variant="outlined" onDelete={() => removeItem(index)} />
+                                )
+                            })}
                         </div>
                             
                         <div className="my-5">

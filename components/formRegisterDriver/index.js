@@ -22,7 +22,20 @@ export function FormRegister() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            let driver = await saveDriver(e.target);
+            var empty_field = await verifyFieldsEmpety(fields, e.target);
+            var check_email_is_valid = checkEmailIsValid(e.target['email'].value);
+            
+            if(empty_field){
+                successContext.openDialog(false, "Preencha todos os campos");
+                return;
+            }
+
+            if(check_email_is_valid){
+                successContext.openDialog(false, "Informe um email válido");
+                return;
+            }
+
+            await saveDriver(e.target);
             successContext.openDialog();
         } catch (err) {
             successContext.openDialog(false, err);

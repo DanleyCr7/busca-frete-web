@@ -11,7 +11,7 @@ export const verifyFieldsEmpety = async ( fields = [], target) => {
     return empty_field;
 }
 
-export const saveDriver = async (target) => {
+export const saveClient = async (target) => {
 
     try {
         var form = {
@@ -33,16 +33,4 @@ export const saveDriver = async (target) => {
     
 }
 
-export const checkEmailIsValid = ( email ) => {
-
-    // don't remember from where i copied this code, but this works.
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if ( re.test(email) ) {
-        return false;
-    }
-    else {
-        return true;
-    }
-
-}
 
