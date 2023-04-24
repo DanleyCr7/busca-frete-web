@@ -1,5 +1,5 @@
-import { Timestamp } from "firebase/firestore";
 import api from '../../../config/axios';
+import { formatNumber } from "../../../config/helper";
 
 export const verifyFieldsEmpety = async ( fields = [], target) => {
     var empty_field = false;
@@ -16,7 +16,7 @@ export const saveDriver = async (target) => {
     try {
         var form = {
             name: target['nome']?.value,
-            phone: target['telefone']?.value,
+            phone: formatNumber(target['telefone']?.value),
             neighborhood: target['bairro']?.value,
             reference: target['referencia']?.value,
             weight: target['peso']?.value == "sim" ? true : false,

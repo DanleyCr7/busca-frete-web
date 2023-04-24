@@ -2,7 +2,7 @@ import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext} from 'react'
 import SuccessContext from "../../context/successContext";
-import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting, resgisterUser, checkEmailIsValid }  from './services/form_register'
+import { verifyFieldsEmpety, saveDriver, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 
 export function FormRegister() {

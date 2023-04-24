@@ -1,5 +1,6 @@
 import { Timestamp } from "firebase/firestore";
 import api from '../../../config/axios';
+import { formatNumber } from "../../../config/helper";
 
 export const verifyFieldsEmpety = async ( fields = [], target) => {
     var empty_field = false;
@@ -17,14 +18,11 @@ export const saveClient = async (target) => {
         var form = {
             name: target['nome']?.value,
             phone: target['telefone']?.value,
-            neighborhood: target['bairro']?.value,
-            reference: target['referencia']?.value,
-            weight: target['peso']?.value == "sim" ? true : false,
-            use_car: target['usa_carro']?.value == "sim" ? true : false,
-            work_weekends: target['trabalha_finais_de_semana']?.value == "sim" ? 1 : 0,
+            cpf: formatNumber(e.target['cpf']?.value ?? ''),
+            number_home: target['number_home']?.value == "sim" ? true : false,
         };
     
-        return api.post('drivers', 
+        return api.post('clients', 
             form
         );
     } catch (error) {
