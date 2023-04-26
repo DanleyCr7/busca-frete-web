@@ -5,13 +5,21 @@ import SuccessContext from "../../context/successContext";
 import { verifyFieldsEmpety, saveClient, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 import { Chip, IconButton } from "@mui/material";
-import { AddCircle } from "@mui/icons-material";
-
+import { AddCircle, Search } from "@mui/icons-material";
+import ViaCep from 'react-via-cep';
 export function FormRequestFreight() {
     const successContext = useContext(SuccessContext);
     const [itens, setItens] = useState([]);
     const [item, setItem] = useState('');
+    const [isCepSearch, setIsCepSearch] = useState(true);
+    
     const [next, setNext] = useState(0);
+    const [client, setClient] = useState({
+        cep: null,
+        address: null,
+        number_home: null,
+        neighborhood: null,
+    });
     const [freight, setFreight] = useState({
         client_id : null,
         neighborhood_initial : null,
@@ -29,17 +37,14 @@ export function FormRequestFreight() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            // var empty_field = await verifyFieldsEmpety(fields, e.target);
+            var empty_field = await verifyFieldsEmpety(fields, e.target);
 
-            // if(empty_field){
-            //     successContext.openDialog(false, "Preencha todos os campos");
-            //     return;
-            // }
-            
-            console.log(freight);
-            console.log(e.target);
+            if(empty_field){
+                successContext.openDialog(false, "Preencha todos os campos");
+                return;
+            }
 
-            // var client = await saveClient(e.target);
+            await saveClient(e.target);
             
             successContext.openDialog();
         } catch (err) {
@@ -47,7 +52,6 @@ export function FormRequestFreight() {
             // successContext.openDialog(false, err);
         }
     }
-
 
     const addItem = () => {
         let itens_push = [...itens];
@@ -65,8 +69,6 @@ export function FormRequestFreight() {
             setItens(itens_push);
         }
     }
-
-
     
     return (
         <div className="lg:top-0 mt-10 mb-10 lg:mt-0 bg-white px-8 pt-5 rounded-lg">
@@ -75,20 +77,7 @@ export function FormRequestFreight() {
                      <div>
                      {/* <--> */}
                      <div className="w-full">
-                         <label className="text-md text-gray-500">Bairro de onde voce esta</label><br />
-                         <input name="neighborhood_initial" 
-                         value={freight.neighborhood_initial}
-                         onChange={(e) => setFreight(prevState => ({
-                            ...prevState,
-                            neighborhood_initial: e.target?.value ?? ''
-                        }))} 
-                        placeholder="Bairro da coleta dos itens" 
-                        className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
-                     </div>
-                         
-                     {/* <--> */}
-                     <div className="w-full">
-                         <label className="text-md text-gray-500">Bairro pra onde voce quer ir?</label><br />
+                         <label className="text-md text-gray-500">Pra qual bairro voce deseja fazer o frete?</label><br />
                          <input
                          name="neighborhood_finaly" 
                          value={freight.neighborhood_finaly}
@@ -126,7 +115,102 @@ export function FormRequestFreight() {
                          <ButtonPerson onChange={() => setNext(1)} text="Próximo"/>                            
                      </div>
                  </div>
-                ) : (
+                ) :  next == 1 ?
+                (
+                    <div>
+                     {/* <--> */}
+                     <ViaCep cep={client.cep} lazy>
+                        {({ data, loading, error, fetch }) => {
+                            if (loading) {
+                                return <p>loading...</p>
+                            }
+                            if (error) {
+                                console.log(error);
+                            }
+                            if (data) {
+                                console.log(data);
+                                setClient(prevState => ({
+                                    ...prevState,
+                                    neighborhood: data.bairro,
+                                    address: data.logradouro,
+                                }))
+                                setIsCepSearch(false);
+                            }
+                            return (
+                                <div className="w-full flex">
+                                    <div  className="w-5/6">
+                                        <label className="text-md text-gray-500">CEP</label><br />
+                                        <input
+                                        name="cep" 
+                                        value={client.cep}
+                                        onChange={(e) => setClient(prevState => ({
+                                            ...prevState,
+                                            cep: e.target?.value ?? ''
+                                        }))} 
+                                        placeholder="ex: 64205460" 
+                                        className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                                    </div>
+                                    
+                                    <div className="w-1/6 pt-4">
+                                        <IconButton onClick={() => fetch()} aria-label="add">
+                                            <Search />
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            )
+                        }}
+                    </ViaCep>
+                     {/* <--> */}
+                     <div className="w-full w-full bg-green">
+                        <label className="text-md text-gray-500">Bairro</label><br />
+                        <input 
+                            disabled={isCepSearch}
+                            name="neighborhood" 
+                            value={client.neighborhood}
+                            onChange={(e) => setClient(prevState => ({
+                                ...prevState,
+                                neighborhood: e.target?.value ?? ''
+                            }))} 
+                            placeholder="Bairro" className="font-normal border-b-[1px] w-full placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" />
+                     </div>
+                     <br />
+                     {/* <--> */}
+                     <div className="w-full w-full bg-green">
+                        <label className="text-md text-gray-500">Logradouro</label><br />
+                        <input 
+                            disabled={isCepSearch}
+                            name="address"
+                            value={client.address}
+                            onChange={(e) => setClient(prevState => ({
+                                ...prevState,
+                                address: e.target?.value ?? ''
+                            }))}
+                            placeholder="Logradouro" className="font-normal border-b-[1px] w-full placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" />
+                     </div>
+                     <br />
+                     {/* <--> */}
+                     <div className="w-full w-full bg-green">
+                        <label className="text-md text-gray-500">Numero</label><br />
+                        <input 
+                            disabled={isCepSearch}
+                            name="number_home" 
+                            value={client.number_home}
+                            onChange={(e) => setClient(prevState => ({
+                                ...prevState,
+                                number_home: e.target?.value ?? ''
+                            }))}
+                            placeholder="Numero da casa" className="font-normal border-b-[1px] w-full placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" />
+                     </div>
+                     <div className="my-5">
+                        <ButtonPerson onChange={() => setNext(0)} text="Anterior"/>                            
+                    </div>
+                         
+                     <div className="my-5">
+                         <ButtonPerson onChange={() => setNext(2)} text="Próximo"/>                            
+                     </div>
+                 </div>
+                ):
+                (
                     <div>
                         <div className="w-full">
                             <label className="text-md text-gray-500">Nome</label><br />
@@ -145,7 +229,7 @@ export function FormRequestFreight() {
                             <IMaskInput mask={mask_phone} name="telefone" placeholder="Telefone" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
                         </div>
                         <div className="my-5">
-                            <ButtonPerson onChange={() => setNext(0)} text="Anterior"/>                            
+                            <ButtonPerson onChange={() => setNext(1)} text="Anterior"/>                            
                         </div>
                         <div className="my-5">
                             <ButtonPerson type="submit" text="Solicitar"/>                            
