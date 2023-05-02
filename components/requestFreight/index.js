@@ -6,7 +6,8 @@ import { verifyFieldsEmpety, saveClient, checkEmailIsValid }  from './services/f
 import { IMaskInput } from "react-imask";
 import { Chip, IconButton } from "@mui/material";
 import { AddCircle, Search } from "@mui/icons-material";
-import ViaCep from 'react-via-cep';
+import { searchCep } from "./services/apisServices";
+
 export function FormRequestFreight() {
     const successContext = useContext(SuccessContext);
     const [itens, setItens] = useState([]);
@@ -48,8 +49,7 @@ export function FormRequestFreight() {
             
             successContext.openDialog();
         } catch (err) {
-            console.log(err);
-            // successContext.openDialog(false, err);
+            successContext.openDialog(false, "Aconteceu um erro, tente novamente daqui a pouco.");
         }
     }
 
@@ -67,6 +67,23 @@ export function FormRequestFreight() {
         if (index !== -1) {
             itens_push.splice(index, 1);
             setItens(itens_push);
+        }
+    }
+
+    const cep = async () => {
+        try {
+            var cep_response = await searchCep(client.cep);
+
+            setClient(prevState => ({
+                ...prevState,
+                neighborhood: cep_response.neighborhood ?? '',
+                address: cep_response.street ?? ''
+            }));
+
+            setIsCepSearch(false);
+            
+        } catch (error) {
+            successContext.openDialog(false, "Falha ao buscar seu cep :(, ele está realmente correto?");
         }
     }
     
@@ -119,47 +136,26 @@ export function FormRequestFreight() {
                 (
                     <div>
                      {/* <--> */}
-                     <ViaCep cep={client.cep} lazy>
-                        {({ data, loading, error, fetch }) => {
-                            if (loading) {
-                                return <p>loading...</p>
-                            }
-                            if (error) {
-                                console.log(error);
-                            }
-                            if (data) {
-                                console.log(data);
-                                setClient(prevState => ({
-                                    ...prevState,
-                                    neighborhood: data.bairro,
-                                    address: data.logradouro,
-                                }))
-                                setIsCepSearch(false);
-                            }
-                            return (
-                                <div className="w-full flex">
-                                    <div  className="w-5/6">
-                                        <label className="text-md text-gray-500">CEP</label><br />
-                                        <input
-                                        name="cep" 
-                                        value={client.cep}
-                                        onChange={(e) => setClient(prevState => ({
-                                            ...prevState,
-                                            cep: e.target?.value ?? ''
-                                        }))} 
-                                        placeholder="ex: 64205460" 
-                                        className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
-                                    </div>
-                                    
-                                    <div className="w-1/6 pt-4">
-                                        <IconButton onClick={() => fetch()} aria-label="add">
-                                            <Search />
-                                        </IconButton>
-                                    </div>
-                                </div>
-                            )
-                        }}
-                    </ViaCep>
+                     <div className="w-full flex">
+                        <div  className="w-5/6">
+                            <label className="text-md text-gray-500">CEP</label><br />
+                            <input
+                            name="cep" 
+                            value={client.cep}
+                            onChange={(e) => setClient(prevState => ({
+                                ...prevState,
+                                cep: e.target?.value ?? ''
+                            }))} 
+                            placeholder="ex: 64205460" 
+                            className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                        </div>
+                        
+                        <div className="w-1/6 pt-4">
+                            <IconButton onClick={()=> cep(client.cep)} aria-label="add">
+                                <Search />
+                            </IconButton>
+                        </div>
+                    </div>
                      {/* <--> */}
                      <div className="w-full w-full bg-green">
                         <label className="text-md text-gray-500">Bairro</label><br />

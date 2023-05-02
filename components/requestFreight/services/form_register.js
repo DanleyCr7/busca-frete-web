@@ -19,7 +19,6 @@ export const saveClient = async (target) => {
             name: target['nome']?.value,
             phone: target['telefone']?.value,
             cpf: formatNumber(e.target['cpf']?.value ?? ''),
-            number_home: target['number_home']?.value == "sim" ? true : false,
         };
     
         return api.post('clients', 
