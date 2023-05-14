@@ -12,13 +12,14 @@ export const verifyFieldsEmpety = async ( fields = [], target) => {
     return empty_field;
 }
 
-export const saveClient = async (target) => {
+export const saveClient = async (target, client) => {
 
     try {
         var form = {
             name: target['nome']?.value,
             phone: target['telefone']?.value,
             cpf: formatNumber(e.target['cpf']?.value ?? ''),
+            ...client
         };
     
         return api.post('clients', 
@@ -30,4 +31,16 @@ export const saveClient = async (target) => {
     
 }
 
+
+export const saveFreight = async (form) => {
+
+    try {
+        return api.post('freights', 
+            form
+        );
+    } catch (error) {
+        return error;
+    }
+    
+}
 

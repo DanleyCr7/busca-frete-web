@@ -76,6 +76,7 @@ export default function Estimative() {
         '1',
         '1',
         '1',
+        '1',
     ];
 
     return (
@@ -223,13 +224,14 @@ export default function Estimative() {
                     <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
                     <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
                 </div>
-                <h2 className="font-bold text-5xl text-gray-900 text-right">Milhares de clientes satisfeitos</h2>
-                <p className="text-gray-400 text-right text-lg">Descubra por que milhares de pessoas adoram nosso serviço.</p>
+                <h2 className="font-bold lg:text-5xl text-2xl text-gray-900 text-right">Milhares de clientes satisfeitos</h2>
+                <p className="text-gray-400 text-right lg:text-lg text-sm mt-2">Descubra por que milhares de pessoas adoram nosso serviço.</p>
             </div>
-            <div className='grid grid-rows-2 grid-flow-col gap-6 px-8 mb-24'>                {avaliacoes.map((item, index) => {
+            <div className='grid lg:grid-cols-5 grid-cols-1 gap-6 px-8 mb-24'>                
+                {avaliacoes.map((item, index) => {
                     return (
                         <div key={index} className='flex flex-col px-4 py-3 bg-gray-100 rounded-lg'>
-                            <div className='w-44'>
+                            <div className='lg:w-46'>
                                 <p>“Lugg is such a fast, easy, and convenient service! I've used them twice now and both moves have been amazing. I highly recommend this service to anyone who has no other way to transport big items! ”</p>
                             </div>
                             <div className="flex mt-3">

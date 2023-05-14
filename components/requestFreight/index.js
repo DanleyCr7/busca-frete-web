@@ -26,7 +26,6 @@ export function FormRequestFreight() {
         neighborhood: null,
     });
     const [freight, setFreight] = useState({
-        client_id : null,
         neighborhood_initial : null,
         neighborhood_finaly : null,
     });
@@ -49,7 +48,16 @@ export function FormRequestFreight() {
                 return;
             }
 
-            await saveClient(e.target);
+            var client_response = await saveClient(e.target, client);
+
+            var freight_response = await saveFreight({
+                "client_id": client_response.data.id,
+                "category_id": categoryId,
+                "neighborhood_finaly": freight.neighborhood_finaly,
+                "items": itens
+            });
+
+            console.log(freight_response);
             
             successContext.openDialog();
         } catch (err) {
