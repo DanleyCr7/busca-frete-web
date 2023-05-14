@@ -90,14 +90,14 @@ export default function Estimative() {
                 ></script> */}
             </Head>
             <div className='w-full'>
-                <div className="lg:invisible lg:h-2">
+                {/* <div className="lg:invisible lg:h-2">
                     <MenuHamburguer />
-                </div>
-                <div className='justify-self-center flex flex-col items-center lg:mt-5 invisible lg:visible'>
-                    <div className='flex justify-center'>
+                </div> */}
+                {/* <div className='justify-self-center flex flex-col items-center lg:mt-5 invisible lg:visible'>
+                    <div className='flex justify-center mb-2'>
                         {drawer.map((item, index) => {
                             let buyNow = 'font-semibold border-solid border-2 border-indigo-900 rounded text-xl p-3 text-indigo-900';
-                            let drawerList = 'font-semibold text-xl text-indigo-900';
+                            let drawerList = 'text-xl text-indigo-900';
                             return (
                                 <div className='lg:m-2 cursor-pointer' key={index}>
                                     <span className={index == 5 ? buyNow : drawerList}>{item}</span>
@@ -106,8 +106,8 @@ export default function Estimative() {
                         })}
 
                     </div>
-                    <Divider className='w-3/6 mt-5' />
-                </div>
+                    <Divider className='w-3/6 mt-' />
+                </div> */}
 
                 <div id='initiative' className="items-center flex flex-col lg:pt-5">
                     <div className="text-center mb-4">
@@ -118,37 +118,19 @@ export default function Estimative() {
                         {/* quadrados */}
                         <div className='lg:w-2/6 w-full'>
                             <Image src={luggersLoadingVan} alt="me" />
-                            {/* <div className='grid grid-cols-3'>
-                                {icons.map((item, index) => {
-                                    let col3 = 'bg-gray-100 m-1 flex flex-col items-center py-6 px-8';
-                                    let colFull = 'col-span-3 m-1 bg-gray-100 flex flex-col items-center py-6 px-8';
-                                    return (
-                                        <button key={index} className={index == 6 ? colFull : col3}>
-                                            <React.Fragment>
-                                                {item.icon}
-                                            </React.Fragment>
-                                            <span className='lg:text-md text-sm font-semibold'>{item.name}</span>
-                                        </button>
-                                    )
-                                })}
-                            </div> */}
                         </div>
                         <div className='lg:w-2/6 w-full'>
                             <FormRequestFreight/>
                         </div>
-                        {/* mapa */}
-                        {/* <div className='p-1 lg:pl-0 pl-6 justify-self-center'>
-                            <MyMap />
-                        </div> */}
                     </div>
                     <div className='flex flex-col items-center mt-8 mb-4 text-indigo-700'>
-                        <span className='font-semibold'>Learn more about how it works</span>
+                        <span className='font-semibold'>Saiba mais sobre como funciona</span>
                         <ChevronDownIcon className="h-7 w-7 self-center" />
                     </div>
                 </div>
             </div>
             <div className='lg:flex lg:justify-center lg:flex-row flex flex-col sm:items-center'>
-                <div className='lg:w-2/6 w-4/4 px-4 mr-8'>
+                <div className='lg:w-2/6 lg:w-4/4 px-4 lg:mr-8'>
                     <div>
                         <h2 className="font-bold text-3xl text-gray-700 mb-3 lg:text-left text-center">Motores e um caminhão</h2>
                         <span className="text-gray-400 text-lg mt-5 lg:text-left text-center">Não levante um dedo. Economize tempo enquanto nossos fortes buscadores fazem o trabalho para você.</span>
@@ -206,7 +188,7 @@ export default function Estimative() {
             <div className='flex flex-col items-center'>
                 <p className="text-blue-400 text-right text-sm mt-5">Economize tempo e suas costas</p>
                 <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">Agende sua mudança hoje</h2>
-                <a href='#initiative' className="flex flex-col items-center cursor-pointer text-gray-600 w-full w-1/6 rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-2 lg:py-3">
+                <a href='#initiative' className="flex flex-col items-center cursor-pointer text-gray-600 w-full lg:w-1/6 w-3/6 rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-2 lg:py-3">
                     Iniciar estimativa
                 </a>
                 <div className='lg:w-4/6 w-4/4 px-4 mt-10 lg:mt-0'>
