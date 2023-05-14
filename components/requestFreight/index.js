@@ -2,7 +2,7 @@ import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext, useEffect, useState} from 'react'
 import SuccessContext from "../../context/successContext";
-import { verifyFieldsEmpety, saveClient, checkEmailIsValid }  from './services/form_register'
+import { verifyFieldsEmpety, saveClient, checkEmailIsValid, saveFreight }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 import { Chip, FormControl, IconButton, InputLabel, MenuItem, Select } from "@mui/material";
 import { AddCircle, Search } from "@mui/icons-material";
@@ -12,9 +12,10 @@ import { getCategoryCars } from "../../services/categoryService";
 export function FormRequestFreight() {
     const successContext = useContext(SuccessContext);
     const [itens, setItens] = useState([]);
-    const [cateogry, setCategory] = useState([]);
-    const [categorySelect, setCateogrySelect] = useState();
+    const [category, setCategory] = useState([]);
+    const [carsExemple, setCarsExemple] = useState([]);
     const [categoryId, setCategoryId] = useState();
+    const [categorySelect, setCategorySelect] = useState();
     const [item, setItem] = useState('');
     const [isCepSearch, setIsCepSearch] = useState(true);
     
@@ -29,13 +30,11 @@ export function FormRequestFreight() {
         neighborhood_initial : null,
         neighborhood_finaly : null,
     });
-    const mask_cpf = [{ mask: '000.000.000-00' }];
     const mask_phone = [{ mask: '(00) 00000-0000' }];
 
     const fields =  [
        'nome',
        'telefone',
-       'cpf',
     ];
 
     const handleSubmit = async (e) => {
@@ -49,15 +48,14 @@ export function FormRequestFreight() {
             }
 
             var client_response = await saveClient(e.target, client);
-
-            var freight_response = await saveFreight({
-                "client_id": client_response.data.id,
+            
+            await saveFreight({
+                "client_id": client_response?.data?.id,
                 "category_id": categoryId,
-                "neighborhood_finaly": freight.neighborhood_finaly,
+                "neighborhood_finaly": freight?.neighborhood_finaly,
                 "items": itens
             });
 
-            console.log(freight_response);
             
             successContext.openDialog();
         } catch (err) {
@@ -133,11 +131,18 @@ export function FormRequestFreight() {
 
     const handleChange = (event) => {
         setCategoryId(event.target.value);
+        for (let index = 0; index < category.length; index++) {
+            const element = category[index];
+            if(element?.id == event.target.value){
+                setCarsExemple(element?.cars ?? []);
+            }
+        }
     };
 
     const getCategory = async () => {
         try {
             var response = await getCategoryCars();
+            console.log(response);
             setCategory(response);
         } catch (error) {
             throw error;
@@ -187,19 +192,28 @@ export function FormRequestFreight() {
 
                     <div className="mt-4">
                         <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
+                            <InputLabel id="demo-simple-select-label">Categoria do carro</InputLabel>
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                value={categorySelect}
-                                label="Categoria"
+                                label="Categoria do carro"
+                                value={categoryId}
                                 onChange={handleChange}
                             >
-                                {cateogry.map((item) => {
+                                {category.map((item) => {
                                     return <MenuItem value={item.id}>{item.description}</MenuItem>
                                 })}
                             </Select>
                         </FormControl>
+                        <div className="flex flex-row">
+                            <span className="text-md text-gray-500 text-sm font-light">
+                                Exemplo:&ensp;
+                            </span>
+                            {carsExemple.map((item, index) => {
+                                return index < (carsExemple.length -1) ? <span className="text-md text-gray-500 text-sm font-light">{item?.model},&ensp;</span> : <span className="text-md text-gray-500 text-sm font-light">{item?.model}.</span> 
+                            })}
+                        </div>
+                        <br />
                     </div>
                          
                      <div className="my-5">
@@ -288,10 +302,10 @@ export function FormRequestFreight() {
                         </div>
             
                         {/* <--> */}
-                        <div className="w-full">
+                        {/* <div className="w-full">
                             <label className="text-md text-gray-500">CPF</label><br />
                             <IMaskInput mask={mask_cpf} name="cpf" placeholder="CPF" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
-                        </div>
+                        </div> */}
                         
                         {/* <--> */}
                         <div className="w-full">

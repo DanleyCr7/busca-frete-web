@@ -17,11 +17,9 @@ export const saveClient = async (target, client) => {
     try {
         var form = {
             name: target['nome']?.value,
-            phone: target['telefone']?.value,
-            cpf: formatNumber(e.target['cpf']?.value ?? ''),
+            phone: formatNumber(target['telefone']?.value ?? ''),
             ...client
         };
-    
         return api.post('clients', 
             form
         );
