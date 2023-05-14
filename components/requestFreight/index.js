@@ -1,16 +1,20 @@
 import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
-import {useContext, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import SuccessContext from "../../context/successContext";
 import { verifyFieldsEmpety, saveClient, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
-import { Chip, IconButton } from "@mui/material";
+import { Chip, FormControl, IconButton, InputLabel, MenuItem, Select } from "@mui/material";
 import { AddCircle, Search } from "@mui/icons-material";
 import { searchCep } from "./services/apisServices";
+import { getCategoryCars } from "../../services/categoryService";
 
 export function FormRequestFreight() {
     const successContext = useContext(SuccessContext);
     const [itens, setItens] = useState([]);
+    const [cateogry, setCategory] = useState([]);
+    const [categorySelect, setCateogrySelect] = useState();
+    const [categoryId, setCategoryId] = useState();
     const [item, setItem] = useState('');
     const [isCepSearch, setIsCepSearch] = useState(true);
     
@@ -27,7 +31,7 @@ export function FormRequestFreight() {
         neighborhood_finaly : null,
     });
     const mask_cpf = [{ mask: '000.000.000-00' }];
-    const mask_phone = [{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }];
+    const mask_phone = [{ mask: '(00) 00000-0000' }];
 
     const fields =  [
        'nome',
@@ -86,6 +90,51 @@ export function FormRequestFreight() {
             successContext.openDialog(false, "Falha ao buscar seu cep :(, ele está realmente correto?");
         }
     }
+
+    const nextToAdress = () => {
+        if(!freight.neighborhood_finaly){
+            successContext.openDialog(false, "Informe o bairro destino");
+            return;
+        }
+        if(itens.length <= 0){
+            successContext.openDialog(false, "Informe pelo menos 1 item");
+            return;
+        }
+        if(!categoryId){
+            successContext.openDialog(false, "Informe categoria");
+            return;
+        }
+        setNext(1);
+    }
+
+    const nextToClientRequestFreight = () => {
+        if(!client.cep){
+            successContext.openDialog(false, "Informe o seu cep");
+            return;
+        }
+        if(!client.number_home){
+            successContext.openDialog(false, "Informe o numero da sua casa");
+            return;
+        }
+        setNext(2);
+    }
+
+    useEffect(()=> {
+        getCategory();
+    }, []);
+
+    const handleChange = (event) => {
+        setCategoryId(event.target.value);
+    };
+
+    const getCategory = async () => {
+        try {
+            var response = await getCategoryCars();
+            setCategory(response);
+        } catch (error) {
+            throw error;
+        }
+    }
     
     return (
         <div className="lg:top-0 mt-10 mb-10 lg:mt-0 bg-white px-8 pt-5 rounded-lg">
@@ -127,9 +176,26 @@ export function FormRequestFreight() {
                              )
                          })}
                      </div>
+
+                    <div className="mt-4">
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={categorySelect}
+                                label="Categoria"
+                                onChange={handleChange}
+                            >
+                                {cateogry.map((item) => {
+                                    return <MenuItem value={item.id}>{item.description}</MenuItem>
+                                })}
+                            </Select>
+                        </FormControl>
+                    </div>
                          
                      <div className="my-5">
-                         <ButtonPerson onChange={() => setNext(1)} text="Próximo"/>                            
+                         <ButtonPerson onChange={() => nextToAdress()} text="Próximo"/>                            
                      </div>
                  </div>
                 ) :  next == 1 ?
@@ -202,7 +268,7 @@ export function FormRequestFreight() {
                     </div>
                          
                      <div className="my-5">
-                         <ButtonPerson onChange={() => setNext(2)} text="Próximo"/>                            
+                         <ButtonPerson onChange={() => nextToClientRequestFreight()} text="Próximo"/>                            
                      </div>
                  </div>
                 ):
