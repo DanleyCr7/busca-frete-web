@@ -13,9 +13,13 @@ import MyMap from '../../components/map';
 
 // imagens
 import collaborathorTruk from "/img/collaborathorTruk.png";
+import luggersWithFurniture from "/img/luggers-with-furniture.png";
+import luggersLoadingVan from "/img/luggers-loading-van.png";
+
 import moveis from "/img/moveis.png";
 import movingGeneric from "/img/moving-generic.png";
 import { Devider } from '../../components/devider';
+import { FormRequestFreight } from '../../components/requestFreight';
 
 const hasWindow = typeof window !== 'undefined';
 
@@ -72,6 +76,7 @@ export default function Estimative() {
         '1',
         '1',
         '1',
+        '1',
     ];
 
     return (
@@ -79,10 +84,10 @@ export default function Estimative() {
             <Head>
                 <title>Busca frete</title>
                 <link rel="icon" href="/favicon.ico" />
-                <script
+                {/* <script
                     src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
                     async
-                ></script>
+                ></script> */}
             </Head>
             <div className='w-full'>
                 <div className="lg:invisible lg:h-2">
@@ -104,26 +109,32 @@ export default function Estimative() {
                     <Divider className='w-3/6 mt-5' />
                 </div>
 
-                <div className="items-center flex flex-col w-full lg:pt-5">
+                <div id='initiative' className="items-center flex flex-col lg:pt-5">
                     <div className="text-center mb-4">
-                        <h2 className="font-bold text-3xl text-gray-700">Get an estimate</h2>
-                        <span className="text-gray-400 text-lg">Tell us a bit about your move and we’ll help you calculate the cost.</span>
+                        <h2 className="font-bold text-3xl text-gray-700">Solicite seu frete</h2>
+                        <span className="text-gray-400 text-lg">Conte-nos um pouco sobre sua mudança e ajudaremos você a um de nossos parceiros.</span>
                     </div>
-                    <div className='flex lg:flex-row md:flex-row flex-col'>
+                    <div className='flex lg:flex-row lg:flex-row flex-col justify-center'>
                         {/* quadrados */}
-                        <div className='grid grid-cols-3'>
-                            {icons.map((item, index) => {
-                                let col3 = 'bg-gray-100 m-1 flex flex-col items-center py-6 px-8';
-                                let colFull = 'col-span-3 m-1 bg-gray-100 flex flex-col items-center py-6 px-8';
-                                return (
-                                    <button key={index} className={index == 6 ? colFull : col3}>
-                                        <React.Fragment>
-                                            {item.icon}
-                                        </React.Fragment>
-                                        <span className='lg:text-md text-sm font-semibold'>{item.name}</span>
-                                    </button>
-                                )
-                            })}
+                        <div className='lg:w-2/6 w-full'>
+                            <Image src={luggersLoadingVan} alt="me" />
+                            {/* <div className='grid grid-cols-3'>
+                                {icons.map((item, index) => {
+                                    let col3 = 'bg-gray-100 m-1 flex flex-col items-center py-6 px-8';
+                                    let colFull = 'col-span-3 m-1 bg-gray-100 flex flex-col items-center py-6 px-8';
+                                    return (
+                                        <button key={index} className={index == 6 ? colFull : col3}>
+                                            <React.Fragment>
+                                                {item.icon}
+                                            </React.Fragment>
+                                            <span className='lg:text-md text-sm font-semibold'>{item.name}</span>
+                                        </button>
+                                    )
+                                })}
+                            </div> */}
+                        </div>
+                        <div className='lg:w-2/6 w-full'>
+                            <FormRequestFreight/>
                         </div>
                         {/* mapa */}
                         {/* <div className='p-1 lg:pl-0 pl-6 justify-self-center'>
@@ -139,11 +150,13 @@ export default function Estimative() {
             <div className='lg:flex lg:justify-center lg:flex-row flex flex-col sm:items-center'>
                 <div className='lg:w-2/6 w-4/4 px-4 mr-8'>
                     <div>
-                        <h2 className="font-bold text-3xl text-gray-700 mb-3">Movers and a truck</h2>
-                        <span className="text-gray-400 text-lg mt-5">Don’t lift a finger. Save time & save your back while our strong vetted luggers get the job done for you.</span>
+                        <h2 className="font-bold text-3xl text-gray-700 mb-3 lg:text-left text-center">Motores e um caminhão</h2>
+                        <span className="text-gray-400 text-lg mt-5 lg:text-left text-center">Não levante um dedo. Economize tempo enquanto nossos fortes buscadores fazem o trabalho para você.</span>
                     </div>
                     <div className='mt-5'>
-                        <ButtonPerson onChange={() => { }} btn={true} text="Iniciar" />
+                        <a href='#initiative' className="flex flex-col items-center cursor-pointer text-gray-600 w-full lg:w-1/6 rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-2 lg:py-3">
+                            Iniciar
+                        </a>
                     </div>
                 </div>
                 <div className='lg:w-2/6 w-4/4 px-4 mt-10 lg:mt-0'>
@@ -156,10 +169,10 @@ export default function Estimative() {
             <div className='lg:flex lg:justify-center lg:flex-row flex flex-col'>
                 <div className='lg:w-2/6 mt-5 lg:mt-0 w-4/4 px-4'>
                     <div>
-                        <h2 className="font-bold text-3xl text-gray-900 mb-3">On your schedule</h2>
-                        <p className="text-gray-400 text-lg mt-5">Tell us when to arrive, from within 1 hour up to 30 days in advance.</p>
+                        <h2 className="font-bold text-3xl text-gray-900 mb-3 lg:text-left text-center">Na sua agenda</h2>
+                        <p className="text-gray-400 text-lg mt-5 lg:text-left text-center">Diga-nos quando chegar, desde 1 hora até 30 dias de antecedência.</p>
                     </div>
-                    <p className="text-gray-400 text-sm font-semibold mt-5 mb-4">See how we stack up against other options:</p>
+                    {/* <p className="text-gray-400 text-sm font-semibold mt-5 mb-4">Veja como nos comparamos com outras opções:</p>
                     <div className='flex'>
                         <Button style={{ backgroundColor: '#fff', color: 'rgb(40, 48, 96, 1)', border: '1px solid rgb(40, 48, 96, 1)', }}>A sofa</Button>
                         <Button style={{ backgroundColor: 'rgb(40, 48, 96, 1)', color: '#fff' }}>Leving room</Button>
@@ -167,76 +180,23 @@ export default function Estimative() {
                     </div>
                     <div className='mt-5'>
                         <ButtonPerson onChange={() => { }} btn={true} text="Iniciar" />
-                    </div>
+                    </div> */}
                 </div>
-                <div className="grid grid-cols-3 gap-3 mb-10">
-                    <div className='grid grid-rows-5 rounded-[15px] text-center grid-flow-col gap-5 px-2 bg-gray-100'>
-                        <div className='font-semibold pt-5'>
-                            Renting a truck
-                        </div>
-                        <div>
-                            Truck included
-                        </div>
-                        <div>
-                            -
-                        </div>
-                        <div>
-                            4 hours
-                        </div>
-                        <div className='font-bold'>
-                            $70
-                        </div>
-                    </div>
-                    <div className='grid grid-rows-5 rounded-[15px] text-center grid-flow-col gap-5 px-2 bg-white-100'>
-                        <div className='font-semibold pt-5'>
-                            Renting a truck
-                        </div>
-                        <div>
-                            Truck included
-                        </div>
-                        <div>
-                            2 movers
-                        </div>
-                        <div>
-                            2 hours
-                        </div>
-                        <div className='font-bold'>
-                            $200
-                        </div>
-                    </div>
-                    <div className='grid grid-rows-5 rounded-[15px] text-center grid-flow-col gap-5 px-2 text-white bg-indigo-900'>
-                        <div className='font-semibold pt-5'>
-                            Renting a truck
-                        </div>
-                        <div>
-                            Truck included
-                        </div>
-                        <div>
-                            2 movers
-                        </div>
-                        <div>
-                            1 hours
-                        </div>
-                        <div className='font-bold'>
-                            $70
-                        </div>
-                    </div>
+                <div className='lg:w-2/6 w-4/4 px-4 mt-10 lg:mt-0'>
+                    <Image src={luggersWithFurniture} alt="me" />
                 </div>
             </div>
             <div className='flex justify-center mt-5'>
                 <Devider />
             </div>
-            <div className='lg:flex lg:justify-center lg:flex-row flex flex-col'>
+            <div className='lg:flex lg:justify-center items-center lg:flex-row flex flex-col'>
                 <div className='lg:w-2/6 w-4/4 px-4 mt-10 lg:mt-0'>
                     <Image src={moveis} alt="me" />
                 </div>
                 <div className='lg:w-2/6 mt-5 lg:mt-0 w-4/4 px-4 mr-8'>
                     <div>
-                        <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">Your stuff in good hands</h2>
-                        <p className="text-gray-400 text-right text-lg mt-5">All your stuff is 100% covered from the moment we pick it up until it's delivered.</p>
-                    </div>
-                    <div className='mt-5 flex justify-end'>
-                        <ButtonPerson onChange={() => { }} btn={true} text="Iniciar" />
+                        <h2 className="font-bold text-3xl text-gray-900 mb-3 lg:text-right text-center">Suas coisas em boas mãos</h2>
+                        <p className="text-gray-400 text-right text-lg mt-5">Todas as suas coisas são 100% cobertas desde o momento da coleta até a entrega.</p>
                     </div>
                 </div>
             </div>
@@ -244,9 +204,11 @@ export default function Estimative() {
                 <Devider />
             </div>
             <div className='flex flex-col items-center'>
-                <p className="text-blue-400 text-right text-sm mt-5">Save time & your back</p>
-                <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">Schedule your move today</h2>
-                <ButtonPerson onChange={() => { }} btn={true} text="Iniciar estimativa" />
+                <p className="text-blue-400 text-right text-sm mt-5">Economize tempo e suas costas</p>
+                <h2 className="font-bold text-3xl text-gray-900 mb-3 text-right">Agende sua mudança hoje</h2>
+                <a href='#initiative' className="flex flex-col items-center cursor-pointer text-gray-600 w-full w-1/6 rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-2 lg:py-3">
+                    Iniciar estimativa
+                </a>
                 <div className='lg:w-4/6 w-4/4 px-4 mt-10 lg:mt-0'>
                     <Image src={movingGeneric} alt="me" />
                 </div>
@@ -262,13 +224,14 @@ export default function Estimative() {
                     <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
                     <StarIcon className="h-12 w-12 text-yellow-500 self-center" />
                 </div>
-                <h2 className="font-bold text-5xl text-gray-900 text-right">Thousands of happy customers</h2>
-                <p className="text-gray-400 text-right text-lg">Find out why thousands of people love our service.</p>
+                <h2 className="font-bold lg:text-5xl text-2xl text-gray-900 text-right">Milhares de clientes satisfeitos</h2>
+                <p className="text-gray-400 text-right lg:text-lg text-sm mt-2">Descubra por que milhares de pessoas adoram nosso serviço.</p>
             </div>
-            <div className='grid grid-rows-2 grid-flow-col gap-6 px-8 mb-24'>                {avaliacoes.map((item, index) => {
+            <div className='grid lg:grid-cols-5 grid-cols-1 gap-6 px-8 mb-24'>                
+                {avaliacoes.map((item, index) => {
                     return (
                         <div key={index} className='flex flex-col px-4 py-3 bg-gray-100 rounded-lg'>
-                            <div className='w-44'>
+                            <div className='lg:w-46'>
                                 <p>“Lugg is such a fast, easy, and convenient service! I've used them twice now and both moves have been amazing. I highly recommend this service to anyone who has no other way to transport big items! ”</p>
                             </div>
                             <div className="flex mt-3">
@@ -278,7 +241,7 @@ export default function Estimative() {
                                 <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
                                 <StarIcon className="h-5 w-5 text-yellow-500 self-center" />
                             </div>
-                            <p className="text-gray-900 text-center font-semibold text-2xl">Luiz</p>
+                            <p className="text-gray-900 text-center font-semibold text-2xl">Cliente</p>
                         </div>
                     )
                 })}

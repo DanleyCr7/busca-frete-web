@@ -10,7 +10,7 @@ export const constants = {
         },
         {
             title: "Forte e fisicamente capaz",
-            subtitle: "Você deve ser forte e fisicamente capaz de levantar mais de 100 libras."
+            subtitle: "Você deve ser forte e fisicamente capaz de levantar mais de 50kg."
         },
         {
             title: "Ótima comunicação",
@@ -20,7 +20,7 @@ export const constants = {
     have_questions: [
         {
             title: "Quanto devo ser capaz de levantar?",
-            subtitle: "Você deve ser capaz de levantar 100 libras. Pense nisso como um sofá pesado ou uma mesa de jantar de madeira maciça."
+            subtitle: "Você deve ser capaz de levantar 50kg. Pense nisso como um sofá pesado ou uma mesa de jantar de madeira maciça."
         },
         {
             title: "Quais são os requisitos do veículo?",

@@ -4,7 +4,7 @@ import money from "/img/money.png"
 import Image from "next/image";
 import { Divider } from "@mui/material";
 import { useRef } from "react";
-import { FormRegister } from "../../components/formRegister";
+import { FormRegister } from "../../components/formRegisterDriver";
 import { constants } from "../../plugins/constants";
 import busca_frete from "/img/busca_frete.png"
 import { useRouter } from 'next/router';
@@ -43,8 +43,7 @@ export default function Register() {
                         um Lugeiro. Basta selecionar "Não" para a pergunta "Você
                         possui um caminhão e quer usá-lo com Busca Frete?".
                     </h1>
-                    <FormRegister />
-
+                    <FormRegister/>
                     <div className="my-10 py-10">
                         <Divider style={{backgroundColor : '#fff'}}/>
                     </div>

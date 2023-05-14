@@ -2,8 +2,9 @@ import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext} from 'react'
 import SuccessContext from "../../context/successContext";
-import { verifyFieldsEmpety, saveDriver, findNumberPhoneExisting }  from './services/form_register'
+import { verifyFieldsEmpety, saveDriver, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
+
 export function FormRegister() {
     const successContext = useContext(SuccessContext);
     const mask = [{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }];
@@ -22,19 +23,18 @@ export function FormRegister() {
         e.preventDefault()
         try {
             var empty_field = await verifyFieldsEmpety(fields, e.target);
+            var check_email_is_valid = checkEmailIsValid(e.target['email'].value);
             
             if(empty_field){
                 successContext.openDialog(false, "Preencha todos os campos");
                 return;
             }
 
-            var phoneExist = await findNumberPhoneExisting(e.target['telefone'].value);
-            
-            if(phoneExist){
-                successContext.openDialog(false, "Esse número de telefone já está cadastrado");
+            if(check_email_is_valid){
+                successContext.openDialog(false, "Informe um email válido");
                 return;
             }
-            
+
             await saveDriver(e.target);
             successContext.openDialog();
         } catch (err) {
@@ -50,7 +50,13 @@ export function FormRegister() {
                             <label className="text-md text-gray-500">Nome</label><br />
                             <input name="nome" placeholder="Digite seu nome" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
                         </div>
-                            
+                        
+                        {/* <--> */}
+                        <div className="w-full">
+                            <label className="text-md text-gray-500">Email</label><br />
+                            <input name="email" placeholder="Digite seu email" className="font-normal border-b-[1px] w-full mt-2 placeholder-opacity-50 placeholder-gray-400 block w-full rounded-sm pr-3 focus:outline-none" /><br />
+                        </div>
+                        
                         {/* <--> */}
                         <div className="w-full">
                             <label className="text-md text-gray-500">Celular (zap)</label><br />
