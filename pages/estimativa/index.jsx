@@ -112,7 +112,7 @@ export default function Estimative() {
                 <div id='initiative' className="items-center flex flex-col lg:pt-5">
                     <div className="text-center mb-4">
                         <h2 className="font-bold text-3xl text-gray-700">Solicite seu frete</h2>
-                        <span className="text-gray-400 text-lg">Conte-nos um pouco sobre sua mudança e ajudaremos você a um de nossos parceiros.</span>
+                        <span className="text-gray-400 text-lg">Conte-nos um pouco sobre sua mudança e ajudaremos você a achar um de nossos parceiros.</span>
                     </div>
                     <div className='flex lg:flex-row lg:flex-row flex-col justify-center'>
                         {/* quadrados */}
