@@ -2,18 +2,26 @@ import Image from "next/image";
 import logo from "/img/logo.png";
 import busca_frete from "/img/busca_frete.png"
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Carousel } from "../components/carousel";
 import { Describe } from "../components/describe";
 import { ButtonPerson } from "../components/ButtonPerson";
 import { useRouter } from 'next/router';
-import Link from "next/link";
-export default function Home() {
-  const router = useRouter()
 
-  useEffect(() => {
-  }, [])
+export default function Home() {
+  const router = useRouter();
   
+  const [addres, setAddres] = useState({
+    pickup_address : "",
+    destination : ""
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    router.push({pathname:'/estimativa', query: addres});
+  }
+
   return (
     <>
       <div >
@@ -27,6 +35,7 @@ export default function Home() {
               <li className="mx-2">
                 <a onClick={() => router.push('/register')} className="animate-bounce flex flex-col items-center cursor-pointer text-gray-700 w-full rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-1 px-1 lg:py-3">Trabalhe conosco</a>
               </li>
+              
               <li className="mx-2">
                 <a href="#sobre">Sobre</a>
               </li>
@@ -45,13 +54,21 @@ export default function Home() {
           </div>
           
           <div className="flex-col lg:flex rounded-lg mt-8 md:pb-0 pb-4 self-center justify-center rounded-md lg:w-4/6 w-4/5 bg-white">
-            <form className="flex-col flex lg:flex-row text-gray-400 pt-3 lg:justify-between lg:items-center w-full px-5 items-start" action="">
-              
-              <div className="flex text-md lg:text-lg items-center">
+            <form onSubmit={handleSubmit} className="flex-col flex lg:flex-row text-gray-400 pt-3 lg:justify-between lg:items-center w-full px-5 items-start" action="">
+              <div  className="flex text-md lg:text-lg items-center">
                 <ArrowDownIcon className="h-4 w-4 lg:w-5 lg:h-5 text-blue-500 mr-2" />
                 <div className="mt-2">
                   <label>Bairro onde você está</label><br />
-                  <input placeholder="Seu bairro" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
+                  <input 
+                    placeholder="Seu bairro" 
+                    value={addres.pickup_address}
+                      onChange={(e) => setAddres(prevState => ({
+                        ...prevState,
+                        pickup_address: e.target?.value ?? ''
+                    }))}  
+                    className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" 
+                    required
+                    /><br />
                 </div>
               </div>
 
@@ -59,11 +76,19 @@ export default function Home() {
                 <ArrowUpIcon className="h-4 w-4 lg:w-5 lg:h-5 text-blue-500 mr-2" />
                 <div className="mt-2">
                   <label>Bairro que você quer ir</label><br />
-                  <input placeholder="Bairro destino" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
+                  <input 
+                    placeholder="Bairro destino"
+                    value={addres.destination}
+                      onChange={(e) => setAddres(prevState => ({
+                        ...prevState,
+                        destination: e.target?.value ?? ''
+                    }))}  
+                    className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" 
+                    required
+                    /><br />
                 </div>
               </div>
-              
-              <ButtonPerson onChange={() => router.push('/estimativa')} btn={true} text="Estimativa" />
+              <ButtonPerson type={"submit"} btn={true} text="Estimativa" />
             </form>
           </div>
         </div> 

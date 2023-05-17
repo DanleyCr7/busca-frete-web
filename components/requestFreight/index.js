@@ -8,6 +8,7 @@ import { Chip, FormControl, IconButton, InputLabel, MenuItem, Select } from "@mu
 import { AddCircle, Search } from "@mui/icons-material";
 import { searchCep } from "./services/apisServices";
 import { getCategoryCars } from "../../services/categoryService";
+import { useRouter } from "next/router";
 
 export function FormRequestFreight() {
     const successContext = useContext(SuccessContext);
@@ -18,7 +19,7 @@ export function FormRequestFreight() {
     const [categorySelect, setCategorySelect] = useState();
     const [item, setItem] = useState('');
     const [isCepSearch, setIsCepSearch] = useState(true);
-    
+    const router = useRouter();
     const [next, setNext] = useState(0);
     const [client, setClient] = useState({
         cep: null,
@@ -126,6 +127,14 @@ export function FormRequestFreight() {
     }
 
     useEffect(()=> {
+        setFreight(prevState => ({
+            ...prevState,
+            neighborhood_finaly: router.query.destination ?? ''
+        }));
+        setClient(prevState => ({
+            ...prevState,
+           neighborhood : router.query.pickup_address ?? ''
+        }));
         getCategory();
     }, []);
 
