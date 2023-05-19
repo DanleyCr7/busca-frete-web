@@ -1,9 +1,9 @@
 import { useState, useContext} from 'react';
 import Button from '@mui/material/Button';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-import SnackContext from '../../context/snackContext';
-import MessageContext from '../../context/messageContext';
-import SuccessContext from '../../context/successContext';
+import SnackContext from '../../contexts/snackContext';
+import MessageContext from '../../contexts/messageContext';
+import SuccessContext from '../../contexts/successContext';
 import { Alert } from '@mui/material';
 
 
