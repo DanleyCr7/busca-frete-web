@@ -84,10 +84,10 @@ export default function Estimative() {
             <Head>
                 <title>Busca frete</title>
                 <link rel="icon" href="/favicon.ico" />
-                {/* <script
-                    src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBjuqBcsXPhQEui5qk-5VQzIkNWj8P0wsI&callback=initMap&libraries=&v=weekly`}
+                <script
+                    src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCHRuiHCp2bWVgFqZBwnmaqdA81UU4NdNs&callback=initMap&libraries=&v=weekly`}
                     async
-                ></script> */}
+                ></script>
             </Head>
             <div className='w-full'>
                 {/* <div className="lg:invisible lg:h-2">
@@ -117,6 +117,7 @@ export default function Estimative() {
                     <div className='flex lg:flex-row lg:flex-row flex-col justify-center'>
                         {/* quadrados */}
                         <div className='lg:w-2/6 w-full'>
+                            {/* <MyMap/> */}
                             <Image src={luggersLoadingVan} alt="me" />
                         </div>
                         <div className='lg:w-2/6 w-full'>
