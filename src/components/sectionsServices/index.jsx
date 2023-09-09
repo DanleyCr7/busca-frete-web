@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRightIcon } from '@heroicons/react/solid';
-import { Colors } from "../../config/color";
+import { Colors } from "../../../config/color";
 import delivery from '/img/fast-delivery.png'
 import Image from 'next/image'
 

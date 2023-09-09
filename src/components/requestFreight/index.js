@@ -1,13 +1,13 @@
 import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext, useEffect, useState} from 'react'
-import SuccessContext from "../../context/successContext";
+import SuccessContext from "../../contexts/successContext";
 import { verifyFieldsEmpety, saveClient, checkEmailIsValid, saveFreight }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 import { Chip, FormControl, IconButton, InputLabel, MenuItem, Select } from "@mui/material";
 import { AddCircle, Search } from "@mui/icons-material";
 import { searchCep } from "./services/apisServices";
-import { getCategoryCars } from "../../services/categoryService";
+import { getCategoryCars } from "../../../services/categoryService";
 import { useRouter } from "next/router";
 
 export function FormRequestFreight() {
@@ -150,9 +150,9 @@ export function FormRequestFreight() {
 
     const getCategory = async () => {
         try {
-            var response = await getCategoryCars();
-            console.log(response);
-            setCategory(response);
+            // var response = await getCategoryCars();
+            // console.log(response);
+            // setCategory(response);
         } catch (error) {
             throw error;
         }

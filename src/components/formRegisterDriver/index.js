@@ -1,7 +1,7 @@
 import { ButtonPerson } from "../ButtonPerson";
 import { RadioPerson } from "../radio";
 import {useContext} from 'react'
-import SuccessContext from "../../context/successContext";
+import SuccessContext from "../../contexts/successContext";
 import { verifyFieldsEmpety, saveDriver, checkEmailIsValid }  from './services/form_register'
 import { IMaskInput } from "react-imask";
 

@@ -1,6 +1,6 @@
 import { LinkIcon, StarIcon, ArrowRightIcon } from "@heroicons/react/solid";
 import { useState } from "react";
-import { Colors } from "../../config/color";
+import { Colors } from "../../../config/color";
 
 export function Reviews() {
     const [hover, setHover] = useState(false);

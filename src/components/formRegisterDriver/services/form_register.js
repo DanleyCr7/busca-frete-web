@@ -1,5 +1,5 @@
-import api from '../../../config/axios';
-import { formatNumber } from "../../../config/helper";
+import api from '../../../../config/axios';
+import { formatNumber } from "../../../../config/helper";
 
 export const verifyFieldsEmpety = async ( fields = [], target) => {
     var empty_field = false;

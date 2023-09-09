@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
-import { Colors } from "../../config/color";
+import { Colors } from "../../../config/color";
 import { useRouter } from 'next/router';
 
 export function Parceria() {
