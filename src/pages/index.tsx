@@ -1,103 +1,76 @@
-import Head from 'next/head'
-import { LockClosedIcon } from '@heroicons/react/solid'
-import { useForm } from 'react-hook-form'
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import Image from "next/image";
+import logo from "/img/logo.png";
+import busca_frete from "/img/busca_frete.png"
+import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
+import { useEffect } from "react";
 import { useRouter } from 'next/router';
-
+import Link from "next/link";
+import { ButtonPerson } from "../components/ButtonPerson";
+import { Carousel } from "../components/carousel";
+import { Describe } from "../components/describe";
 export default function Home() {
-  const { register, handleSubmit } = useForm();
-  const { signIn } = useContext(AuthContext)
   const router = useRouter()
 
-  async function handleSignIn(data) {
-    await signIn(data)
-  }
-
+  useEffect(() => {
+  }, [])
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <Head>
-        <title>Home</title>
-      </Head>
-
-      <div className="max-w-sm w-full space-y-8">
-        <div>
-          <img
-            className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-            alt="Workflow"
-          />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit(handleSignIn)}>
-          <input type="hidden" name="remember" defaultValue="true" />
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                {...register('email')}
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
-              />
+    <>
+      <div >
+        <div className="flex flex-col w-full pt-4 md:bg-hero-pattern bg-cover bg-hero-pattern-mobile sm:bg-auto md:bg-cover sm:bg-center bg-cover bg-no-repeat h-screen">
+          {/* --- */}
+          <nav className="flex justify-between items-center px-5">
+            <div className="lg:w-42 w-12 my-2">
+              <Image src={logo} alt="me"/>
             </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                {...register('password')}
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-              />
-            </div>
+            <ul className="flex font-light text-white text-base">
+              <li className="mx-2">
+                <a onClick={() => router.push('/register')} className="animate-bounce flex flex-col items-center cursor-pointer text-gray-700 w-full rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-1 px-1 lg:py-3">Trabalhe conosco</a>
+              </li>
+              <li className="mx-2">
+                <a href="#sobre">Sobre</a>
+              </li>
+            </ul>
+          </nav>
+          {/* --- */}
+          <div className="text-center self-center rounded-full w-5/6 lg:w-4/6 bg-white py-5">
+            <p className="text-xs md:text-lg lg:text-lg">Agora viva em Parnaíba! A partir de hoje, o busca frete está chegando.</p>
           </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember_me"
-                name="remember_me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                Remember me
-              </label>
+          {/* <--> */}
+          <div  style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+            <div className="lg:w-3/6 w-5/6">
+              <Image src={busca_frete} alt="busca frete" />
             </div>
-
-            <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                Forgot your password?
-              </a>
-            </div>
+            {/* <h1 className="text-2xl lg:text-4xl font-light">Com o apertar de um botão</h1> */}
           </div>
+          
+          <div className="flex-col lg:flex rounded-lg mt-8 md:pb-0 pb-4 self-center justify-center rounded-md lg:w-4/6 w-4/5 bg-white">
+            <form className="flex-col flex lg:flex-row text-gray-400 pt-3 lg:justify-between lg:items-center w-full px-5 items-start" action="">
+              
+              <div className="flex text-md lg:text-lg items-center">
+                <ArrowDownIcon className="h-4 w-4 lg:w-5 lg:h-5 text-blue-500 mr-2" />
+                <div className="mt-2">
+                  <label>Bairro onde você está</label><br />
+                  <input placeholder="Seu bairro" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
+                </div>
+              </div>
 
-          <div>
-            <button
-              // type="submit"
-              onClick={() => router.push('/home')}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
-              </span>
-              Sign in
-            </button>
+              <div className="flex text-md lg:text-lg items-center">
+                <ArrowUpIcon className="h-4 w-4 lg:w-5 lg:h-5 text-blue-500 mr-2" />
+                <div className="mt-2">
+                  <label>Bairro que você quer ir</label><br />
+                  <input placeholder="Bairro destino" className="font-semibold placeholder-opacity-50 placeholder-blue-400 block w-full rounded-md pr-3 focus:outline-none" /><br />
+                </div>
+              </div>
+              
+              <ButtonPerson onChange={() => router.push('/estimativa')} btn={true} text="Estimativa" />
+            </form>
           </div>
-        </form>
+        </div> 
+
       </div>
-    </div>
-  )
+      <Carousel />
+      <Describe />
+    </>
+  );
 }
