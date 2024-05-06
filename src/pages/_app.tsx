@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
     <>
     <Head>
       <title>Busca frete</title>
-      <link rel="icon" href="/logo.png" />
+      <link rel="icon" href="/somente_logo_branca.svg" />
     </Head>
       <SnackContext.Provider value={{open, setOpen}}>
         <SuccessContext.Provider value={{success, openDialog}}>
