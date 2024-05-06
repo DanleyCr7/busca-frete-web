@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logo from "/img/logo.png";
-import busca_frete from "/img/busca_frete.png"
+import logo from "/img/somente_logo_branca.svg";
+import busca_frete from "/img/logo_lado.svg"
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/solid'
 import { useEffect } from "react";
 import { useRouter } from 'next/router';

@@ -6,7 +6,7 @@ import { Divider } from "@mui/material";
 import { useRef } from "react";
 import { FormRegister } from "../../components/formRegisterDriver";
 import { constants } from "../../../plugins/constants";
-import busca_frete from "/img/busca_frete.png"
+import busca_frete from "/img/logo_lado.svg"
 import { useRouter } from 'next/router';
 
 export default function Register() {
@@ -19,7 +19,7 @@ export default function Register() {
             <nav className="w-full flex justify-between items-center px-4">
                     <button onClick={() => router.back()}>
                         <div className="lg:w-48 w-48">
-                            <Image src={busca_frete} alt="busca frete" />
+                            <Image src={busca_frete} alt="busca frete" width={150} />
                         </div>
                     </button>
                 <ul className="flex font-light text-white text-base">
