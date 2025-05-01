@@ -36,7 +36,7 @@ export default function Home() {
           <p className="text-xs md:text-lg lg:text-lg">Agora viva em Parnaíba! A partir de hoje, o busca frete está chegando.</p>
         </div>
         {/* <--> */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
           <div className="lg:w-2/6 w-4/6">
             <Image src={busca_frete} alt="busca frete" width="600" />
           </div>
