@@ -23,9 +23,9 @@ export default function Home() {
             <Image src={logo} alt="me" width={40} />
           </div>
           <ul className="flex font-light text-white text-base">
-            {/* <li className="mx-2">
-                <a onClick={() => router.push('/register')} className="animate-bounce flex flex-col items-center cursor-pointer text-gray-700 w-full rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-1 px-1 lg:py-3">Trabalhe conosco</a>
-              </li> */}
+            <li className="mx-2">
+              <a href="#trabalhe-conosco" className="animate-bounce flex flex-col items-center cursor-pointer text-gray-700 w-full rounded-sm mb-2 text-semibold bg-yellow-300 lg:rounded-sm py-1 px-1 lg:py-3">Trabalhe conosco</a>
+            </li>
             <li className="mx-2">
               <a href="#sobre">Sobre</a>
             </li>
