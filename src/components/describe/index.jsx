@@ -36,7 +36,7 @@ export function Describe() {
                     <h1 className="not-italic text-black-600 font-bold text-3xl">Dois profissionais fortes</h1>
                     <div className="w-96">
                         <p className="not-italic text-gray-400 mt-2">
-                            Cada frete vem com 2 profissionais fortes que são avaliados para uma experiência de 5 estrelas. Eles farão o impossível 
+                            Cada frete vem com 2 profissionais fortes que são avaliados para uma experiência de 5 estrelas. Eles farão o impossível
                             para carregar, transportar e entregar seus itens com segurança.
                         </p>
                     </div>
@@ -102,7 +102,7 @@ export function Describe() {
                 </div>
                 <div className="w-2/5 ">
                     <p className="italic text-gray-400 mt-2 text-sm lg:text-lg text-center" >
-                        Defina seu local de coleta e destino, escolha o tamanho do veículo certo para você e 
+                        Defina seu local de coleta e destino, escolha o tamanho do veículo certo para você e
                         quando você gostaria que chegássemos.
                     </p>
                 </div>
@@ -110,7 +110,7 @@ export function Describe() {
                     {/* <a className="w-32" href="">
                         <Image src={appStore} />
                     </a> */}
-                    <a className="w-28 ml-2" href="">
+                    <a className="w-28 ml-2" href="https://play.google.com/store/apps/details?id=com.frete.busca">
                         <Image src={playStore} />
                     </a>
                 </div>
@@ -126,7 +126,7 @@ export function Describe() {
                         <div className="flex flex-col lg:flex-row">
                             <div className="px-4 py-2 w-10 self-center mb-5 lg:mb-0 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">2</span></div>
                             <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
-                            Não levante um dedo</h1>
+                                Não levante um dedo</h1>
                         </div>
                         <div className="w-4/5 ">
                             <p className="italic text-gray-400 mt-2 text-center" >
@@ -155,7 +155,7 @@ export function Describe() {
                         <div className="flex flex-col lg:flex-row">
                             <div className="px-4 w-10 self-center py-2 rounded-full bg-blue-800 mx-3"><span className="text-white font-sans">3</span></div>
                             <h1 className="text-black-600 font-bold text-2xl lg:text-3xl">
-                            Taxa e dica</h1>
+                                Taxa e dica</h1>
                         </div>
                         <div className="w-5/6 lg:w-4/5">
                             <p className="italic text-gray-400 mt-2 text-center" >
